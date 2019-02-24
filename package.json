@@ -1,0 +1,23 @@
+{
+  "name": "clippit",
+  "version": "1.0.0",
+  "description": "marketpalce for scheduling and managing appointments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorvasujoseph/clippit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorvasujoseph/clippit/issues"
+  },
+  "homepage": "https://github.com/victorvasujoseph/clippit#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.15"
+  }
+}
