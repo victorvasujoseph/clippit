@@ -11,8 +11,8 @@ function App() {
       <div>
         <NavTabs />
         <Route exact path="/" component={Home} />
-        <Route exact path="/discover" component={Login} />
-        <Route exact path="/search" component={bookOnline} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/book" component={bookOnline} />
       </div>
     </Router>
   );
