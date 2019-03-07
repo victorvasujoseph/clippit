@@ -3,10 +3,7 @@ import React, { Component } from "react";
 import DatePicker from 'react-datepicker';
 // import moment from 'moment';
 
-import 'react-datepicker/dist/react-datepicker.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-class Blog extends Component {
+class Book extends Component {
 
   constructor(props) {
     super(props)
@@ -32,7 +29,7 @@ class Blog extends Component {
   render() {
     return (
       <div className="container">
-      <br/>
+        <br />
         <h3>Pick a date that best fit your schedule!</h3>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -42,7 +39,7 @@ class Blog extends Component {
               onChange={this.handleChange}
               showTimeSelect
               name="startDate"
-              // dateFormat="MM/DD/YYYY"
+            // dateFormat="MM/DD/YYYY"
             />
           </div>
           <div className="form-group">
@@ -54,6 +51,8 @@ class Blog extends Component {
     );
   }
 }
+
+export default Book;
 //   return (
 //     <div>
 //       <h1>Booking Page</h1>
@@ -149,4 +148,4 @@ class Blog extends Component {
 //     </div>
 //   );
 
-export default Blog;
+
