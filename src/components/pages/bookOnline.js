@@ -1,15 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
 // import { Card, CardGroup, ListGroupItem, ListGroup  } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
+// import moment from 'moment';
 
+import 'react-datepicker/dist/react-datepicker.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-class Blog extends React.Component {
+class Blog extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      startDate: moment()
+      startDate: new Date()
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,7 +42,7 @@ class Blog extends React.Component {
               onChange={this.handleChange}
               showTimeSelect
               name="startDate"
-              dateFormat="MM/DD/YYYY"
+              // dateFormat="MM/DD/YYYY"
             />
           </div>
           <div className="form-group">
