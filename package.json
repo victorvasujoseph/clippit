@@ -4,15 +4,19 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
+    "express": "^4.16.4",
     "moment": "^2.24.0",
+    "mongoose": "^5.4.17",
+    "nodemon": "^1.18.10",
     "react": "^16.8.2",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-datepicker": "^2.1.0",
     "react-dom": "^16.8.2",
     "react-google-calendar-api": "^1.0.10",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "^2.1.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,5 +32,19 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "Boilerplate homepage, login, and book online pages",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorvasujoseph/clippit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorvasujoseph/clippit/issues"
+  },
+  "homepage": "https://github.com/victorvasujoseph/clippit#readme"
 }

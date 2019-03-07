@@ -4,8 +4,8 @@ import NavTabs from "./components/NavTabs";
 import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import bookOnline from "./components/pages/bookOnline";
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
+// import DatePicker from 'react-datepicker';
+// import moment from 'moment';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
