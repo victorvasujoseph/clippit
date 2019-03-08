@@ -20,8 +20,6 @@ class Book extends Component {
     })
   };
 
-
-
   handleSubmit(e) {
     e.preventDefault();
     let main = this.state.startDate
@@ -39,9 +37,10 @@ class Book extends Component {
             <DatePicker
               selected={this.state.startDate}
               onChange={this.handleChange}
-            
-              // showTimeSelect
-              name="startDate"
+              // name="startDate"
+              showTimeSelect
+              timeIntervals={15}
+              dateFormat="MMMM d, yyyy h:mm aa"
               withPortal
             // dateFormat="MM/DD/YYYY"
             />
