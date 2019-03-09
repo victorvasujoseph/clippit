@@ -1,6 +1,5 @@
 import React from "react";
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
 
 
 class Book extends React.Component {
@@ -39,7 +38,6 @@ class Book extends React.Component {
               onChange={this.handleChange}
               showTimeSelect
               name="startDate"
-            // dateFormat="MM/DD/YYYY"
             />
           </div>
           <div className="form-group">

@@ -4,7 +4,8 @@ import { Form, Button,} from 'react-bootstrap';
 
 function Start() {
   return (
-    <div>
+    <div className="container">
+    <br></br>
       <h1>Welcome to Clippit</h1>
 
       <Form>
@@ -17,10 +18,10 @@ function Start() {
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" />
   </Form.Group>
-  <Button variant="primary" type="submit" href="/home">
+  <Button variant="success" type="submit" href="/home">
     Login
   </Button>
-</Form>;
+</Form>
 
     </div>
   );

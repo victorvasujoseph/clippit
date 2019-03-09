@@ -1,18 +1,21 @@
 import React from "react";
-import { Row, Col, Button } from 'react-bootstrap';
+import { Button, ButtonGroup } from 'react-bootstrap';
 
 
 function Logout() {
   return (
-    <div>
-      <container-fluid>
-        <Row>
-          <Col sm={8}>
+    <div className="container">
+    <br></br>
             <h1>Are you sure you want to log out?</h1>
-            <Button variant="warning" type="submit" href="/">Logout </Button>
-          </Col>
-        </Row>
-      </container-fluid>
+
+            <ButtonGroup className="mr-2" aria-label="First group">
+            <Button variant="danger" type="submit" href="/">Yes</Button>
+            </ButtonGroup>
+
+            <ButtonGroup className="mr-2" aria-label="Second group">
+            <Button variant="success" type="submit" href="/home">No</Button>
+            </ButtonGroup>
+
     </div>
 
   );

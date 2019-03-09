@@ -4,14 +4,16 @@ import { Table } from 'react-bootstrap';
 
 function Appointment() {
   return (
-    <div>
+    <div className="container">
+
+    <br></br>
 
 <Table responsive striped bordered hover>
   <thead>
     <tr>
       <th>Date</th>
       <th>Time</th>
-      <th>Service Providers</th>
+      <th>Service Provider</th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +23,7 @@ function Appointment() {
       <td></td>
     </tr>
   </tbody>
-</Table>;
+</Table>
 
     </div>
   );

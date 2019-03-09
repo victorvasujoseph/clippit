@@ -1,5 +1,5 @@
 import React from "react";
-import { Jumbotron, Button, Carousel} from 'react-bootstrap';
+import { Jumbotron, Button, Carousel, Row, Col} from 'react-bootstrap';
 
 
 function Home() {
@@ -37,11 +37,13 @@ function Home() {
 
 <Jumbotron>
 
-  <h1>Book an appointment today!</h1>
-
-    <Button variant="success" href="/book">Book Appointment</Button>
-  
+  <Row>
+    <Col></Col>
+    <Col><Button variant="success" size="lg" block href="/book">Book You Appointment Today!</Button></Col>
+    <Col></Col>
+  </Row>  
 </Jumbotron>;
+
     </div>
   );
 }
