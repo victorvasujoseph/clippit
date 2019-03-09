@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import { Card, CardGroup, ListGroupItem, ListGroup  } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
+import addMonths from "date-fns/addMonths";
 // import moment from 'moment';
 
 class Book extends Component {
@@ -8,7 +9,7 @@ class Book extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      startDate: new Date()
+      startDate: new Date(),
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,11 +38,12 @@ class Book extends Component {
             <DatePicker
               selected={this.state.startDate}
               onChange={this.handleChange}
-              // name="startDate"
-              showTimeSelect
-              timeIntervals={15}
-              dateFormat="MMMM d, yyyy h:mm aa"
+              minDate={new Date()}
+              maxDate={addMonths(new Date(), 5)}
+              showDisabledMonthNavigation
+              showMonthDropdown
               withPortal
+            // name="startDate"
             // dateFormat="MM/DD/YYYY"
             />
           </div>
