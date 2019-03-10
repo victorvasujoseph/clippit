@@ -7,7 +7,8 @@ import Appointments from "./components/pages/Appointments";
 import Start from "./components/pages/Start";
 import Book from "./components/pages/Book";
 import LoginTemp from "./components/pages/LoginTemp";
-
+import 'react-datepicker/dist/react-datepicker.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
