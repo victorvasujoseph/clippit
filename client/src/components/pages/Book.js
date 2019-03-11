@@ -46,7 +46,7 @@ class Book extends Component {
             />
           </div>
           <div className="form-group">
-            <button className="btn btn-danger">Add Date</button>
+            <button className="btn btn-outline-dark">Add Date</button>
           </div>
         </form>
       </div>

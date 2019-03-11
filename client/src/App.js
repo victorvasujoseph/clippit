@@ -15,12 +15,12 @@ function App() {
     <Router>
       <div>
         <NavTabs />
-        <Route exact path="/" component={Start} />
+        {/* <Route exact path="/ttt" component={Start} /> */}
         <Route exact path="/home" component={Home} />
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/Appointments" component={Appointments} />
         <Route exact path="/Book" component={Book} />
-        <Route exact path="/LoginTemp" component={LoginTemp} />
+        <Route exact path="/" component={LoginTemp} />
 
       </div>
     </Router>
@@ -28,33 +28,3 @@ function App() {
 }
 
 export default App;
-
-
-// import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//         </header>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
