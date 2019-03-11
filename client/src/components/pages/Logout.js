@@ -9,11 +9,11 @@ function Logout() {
             <h1>Are you sure you want to log out?</h1>
 
             <ButtonGroup className="mr-2" aria-label="First group">
-            <Button variant="danger" type="submit" href="/">Yes</Button>
+            <Button variant="outline-danger" type="submit" href="/">Yes</Button>
             </ButtonGroup>
 
             <ButtonGroup className="mr-2" aria-label="Second group">
-            <Button variant="success" type="submit" href="/home">No</Button>
+            <Button variant="outline-success" type="submit" href="/home">No</Button>
             </ButtonGroup>
 
     </div>
