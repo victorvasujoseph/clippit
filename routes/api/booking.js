@@ -9,5 +9,6 @@ router
 router.route("/add-new-stylist").post(bookingController.addNewStylist);
 //get all stylist from the System
 router.route("/stylist").get(bookingController.stylist);
+router.route("/insert-availability").post(bookingController.insertAvailability);
 
 module.exports = router;
