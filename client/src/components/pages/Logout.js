@@ -15,9 +15,7 @@ function Logout() {
             <ButtonGroup className="mr-2" aria-label="Second group">
             <Button variant="outline-success" type="submit" href="/home">No</Button>
             </ButtonGroup>
-
     </div>
-
   );
 }
 

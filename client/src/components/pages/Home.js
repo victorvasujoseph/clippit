@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Jumbotron, Button, Carousel, Row, Col, Card, CardDeck, ListGroup, ListGroupItem, Table } from 'react-bootstrap';
+import { Jumbotron, Button, Carousel, Row, Col, Card, CardDeck, ListGroup, ListGroupItem, Table } from 'react-bootstrap';
 
 function Home() {
   return (
@@ -154,123 +154,91 @@ function Home() {
 
 <Jumbotron>
 
-<h1 style={{textAlign: "center"}}>Services for Him</h1>
+<h1 style={{textAlign: "left"}}>For Her ♀</h1>
 
 <br></br>
 
 <Table striped bordered hover>
   <thead>
     <tr>
-      <th><h2 style={{textAlign: "center"}}>Hair</h2></th>
-      <th><h2 style={{textAlign: "center"}}>Other</h2></th>
+      <th><h2 style={{textAlign: "left"}}>Hair</h2></th>
+      <th><h2 style={{textAlign: "left"}}>Extras</h2></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-    <td style={{textAlign: "center"}} >HAIRCUT</td>
-    <td style={{textAlign: "center"}} >STRAIGHT RAZOR SHAVE</td>
+    <td style={{textAlign: "left"}} >HAIRCUT + STYLE</td>
+    <td style={{textAlign: "left"}} >SCALP TREATMENT + REPAIR</td>
     </tr>
     <tr>
-    <td style={{textAlign: "center"}} >HAIRCUT + STYLE</td>
-    <td style={{textAlign: "center"}} >CLIPPER BEARD TRIM</td>
+    <td style={{textAlign: "left"}} >WASH + BLOWOUT</td>
+    <td style={{textAlign: "left"}} >FACIAL WAXING</td>
     </tr>
     <tr>
-    <td style={{textAlign: "center"}} >BUZZ CUT</td>
-    <td style={{textAlign: "center"}} >BARBER BEARD TRIM</td>
+    <td style={{textAlign: "left"}} >HAIR TREATMENT</td>
+    <td style={{textAlign: "left"}} >BALAYAGE</td>
     </tr>
     <tr>
-    <td style={{textAlign: "center"}} >HEAD SHAVE</td>
-    <td style={{textAlign: "center"}} >MUSTACHE TRIM</td>
+    <td style={{textAlign: "left"}} >ROOT TOUCHUP</td>
+    <td style={{textAlign: "left"}} >OMBRE</td>
     </tr>
     <tr>
-    <td style={{textAlign: "center"}} >JUNIOR HAIRCUT</td>
-    <td style={{textAlign: "center"}} >BEARD COLORING</td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >FATHER + SON PACKAGE</td>
-    <td style={{textAlign: "center"}} >SCALP TREATMENT</td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >STUDENT + SENIOR HAIRCUT</td>
-    <td style={{textAlign: "center"}} >NOSE WAXING</td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >HAIR COLORING</td>
-    <td style={{textAlign: "center"}} >EAR WAXING</td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >HIGHLIGHTS</td>
-    <td style={{textAlign: "center"}} >EYEBROW WAXING</td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >GRAY BLENDING</td>
-    <td style={{textAlign: "center"}} ></td>
-    </tr>
-  </tbody>
-</Table> 
-
-<br></br>
-
-<h1 style={{textAlign: "center"}}>Services for Her</h1>
-
-<br></br>
-
-<Table striped bordered hover>
-  <thead>
-    <tr>
-      <th><h2 style={{textAlign: "center"}}>Hair</h2></th>
-      <th><h2 style={{textAlign: "center"}}>Other</h2></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <td style={{textAlign: "center"}} >TRIM</td>
-    <td style={{textAlign: "center"}} >SCALP TREATMENT</td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >HAIRCUT AND STYLE</td>
-    <td style={{textAlign: "center"}} >NOSE WAXING</td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >WASH + BLOWOUT</td>
-    <td style={{textAlign: "center"}} >EAR WAXING</td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >BRAZILIAN BLOWOUT</td>
-    <td style={{textAlign: "center"}} >EYEBROW WAXING</td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >HAIR TREATMENT</td>
-    <td style={{textAlign: "center"}} ></td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >ROOT TOUCHUP</td>
-    <td style={{textAlign: "center"}} ></td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >ALL OVER COLORING</td>
-    <td style={{textAlign: "center"}} ></td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >BALAYAGE</td>
-    <td style={{textAlign: "center"}} ></td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >OMBRE</td>
-    <td style={{textAlign: "center"}} ></td>
-    </tr>
-    <tr>
-    <td style={{textAlign: "center"}} >COLOR CORRECTION</td>
-    <td style={{textAlign: "center"}} ></td>
+    <td style={{textAlign: "left"}} >ALL OVER COLORING</td>
+    <td style={{textAlign: "left"}} >COLOR CORRECTION</td>
     </tr>
   </tbody>
 </Table>
+
+<br></br>
+
+<h1 style={{textAlign: "left"}}>For Him ♂</h1>
+
+<br></br>
+
+<Table striped bordered hover>
+  <thead>
+    <tr>
+      <th><h2 style={{textAlign: "left"}}>Hair</h2></th>
+      <th><h2 style={{textAlign: "left"}}>Extras</h2></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td style={{textAlign: "left"}} >HAIRCUT</td>
+    <td style={{textAlign: "left"}} >STRAIGHT RAZOR SHAVE</td>
+    </tr>
+    <tr>
+    <td style={{textAlign: "left"}} >HAIRCUT + STYLE</td>
+    <td style={{textAlign: "left"}} >CLIPPER BEARD TRIM</td>
+    </tr>
+    <tr>
+    <td style={{textAlign: "left"}} >BUZZ CUT</td>
+    <td style={{textAlign: "left"}} >BARBER BEARD TRIM</td>
+    </tr>
+    <tr>
+    <td style={{textAlign: "left"}} >HEAD SHAVE</td>
+    <td style={{textAlign: "left"}} >MUSTACHE TRIM</td>
+    </tr>
+    <tr>
+    <td style={{textAlign: "left"}} >HAIR COLORING</td>
+    <td style={{textAlign: "left"}} >BEARD COLORING</td>
+    </tr>
+    <tr>
+    <td style={{textAlign: "left"}} >HIGHLIGHTS</td>
+    <td style={{textAlign: "left"}} >SCALP TREATMENT</td>
+    </tr>
+    <tr>
+    <td style={{textAlign: "left"}} >GRAY BLENDING</td>
+    <td style={{textAlign: "left"}} >FACIAL WAXING</td>
+    </tr>
+  </tbody>
+</Table> 
 
 </Jumbotron>
 
 <Row>
     <Col></Col>
-    <Col><Button variant="outline-dark" size="lg" block href="/book">Book your appointment today!</Button></Col>
+    <Col><Button variant="outline-dark" size="lg" block href="/book">Book Appointment</Button></Col>
     <Col></Col>
 </Row> 
 
