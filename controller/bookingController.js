@@ -123,5 +123,14 @@ module.exports = {
       .catch(function(err) {
         console.log(err.message);
       });
-  }
+  },
+    bookAppointment:function(req,res){
+        console.log(req.body.stylistID);
+        console.log(req.body.day);
+        console.log(req.body.month);
+        console.log(req.body.year);
+        console.log(req.body.timeSlot);
+        console.log(req.body.customerID);
+        console.log(req.body.state);
+    }
 };
