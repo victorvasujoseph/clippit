@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import 'whatwg-fetch';
+import { Form, Button, Image, Row, Col,} from 'react-bootstrap';
+
 // import axios from "axios";
 
 import {
@@ -230,64 +232,86 @@ class Home extends Component {
         }
         if (!token) {
             return (
-                <div>
+                <div className="container">
+                <Image src="https://3.bp.blogspot.com/-cZmcCEh4p1g/XIXiykcuCTI/AAAAAAAAAHY/TWLoJ2f2Umw7Tm6JgAh20XgFkVzl0EKnwCLcBGAs/s1600/Login%2BBanner.jpg" fluid />
+                <br></br>
                     <div>
                         {
                             (signInError) ? (
                                 <p>{signInError}</p>
                             ) : (null)
                         }
-                        <p>Sign In</p>
-                        <input
-                            type="email"
-                            placeholder="Email"
+                        <Form>
+                        <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control 
+                            type="email" 
+                            placeholder="Enter email" 
                             value={signInEmail}
                             onChange={this.onTextboxChangeSignInEmail}
                         />
-                        <br />
-                        <input
-                            type="password"
-                            placeholder="Password"
+                        </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control 
+                            type="password" 
+                            placeholder="Password" 
                             value={signInPassword}
                             onChange={this.onTextboxChangeSignInPassword}
                         />
-                        <br />
-                        <button onClick={this.onSignIn}>Sign In</button>
+                        </Form.Group>
+                        <Button variant="outline-dark" type="submit" onClick={this.onSignIn} href="/home">Login</Button>
+                        </Form>
                     </div>
                     <br />
-                    <br />
+                    <h6 style={{textAlign: "center"}}>Don't have an account? No worries, you can make one below.</h6>
                     <div>
                         {
                             (signUpError) ? (
                                 <p>{signUpError}</p>
                             ) : (null)
                         }
-                        <p>Sign Up</p>
-                        <input
-                            type="text"
-                            placeholder="First Name"
+                        <Form>
+                        <Form.Group controlId="formBasicFirstName">
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control 
+                            type="text" 
+                            placeholder="First Name" 
                             value={signUpFirstName}
                             onChange={this.onTextboxChangeSignUpFirstName}
-                        /><br />
-                        <input
-                            type="text"
-                            placeholder="Last Name"
+                        />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicLastName">
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control 
+                            type="text" 
+                            placeholder="Last Name" 
                             value={signUpLastName}
                             onChange={this.onTextboxChangeSignUpLastName}
-                        /><br />
-                        <input
-                            type="email"
-                            placeholder="Email"
+                        />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control 
+                            type="text" 
+                            placeholder="Email" 
                             value={signUpEmail}
                             onChange={this.onTextboxChangeSignUpEmail}
-                        /><br />
-                        <input
-                            type="password"
-                            placeholder="Password"
+                        />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control 
+                            type="text" 
+                            placeholder="Password" 
                             value={signUpPassword}
                             onChange={this.onTextboxChangeSignUpPassword}
-                        /><br />
-                        <button onClick={this.onSignUp}>Sign Up</button>
+                        />
+                        </Form.Group>
+
+                        <Button variant="outline-dark" type="submit" onClick={this.onSignUp} href="/home">Sign Up</Button>
+                        </Form>
+                        <br></br>
                     </div>
                 </div>
             );
