@@ -7,8 +7,8 @@ const appointmentSchema = new Schema({
   month: { type: Number, required: true },
   year: { type: Number, required: true },
   timeSlot: { type: String, required: true },
-  customerID: { type: Number, required: true },
-  state: { type: String, required: true }
+  customerID: { type: Schema.Types.ObjectId, required: true },
+  state: { type: String, default: "active" }
 });
 
 const Appointments = mongoose.model("Appointments", appointmentSchema);
