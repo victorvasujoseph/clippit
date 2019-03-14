@@ -234,15 +234,17 @@ function Home() {
   </tbody>
 </Table> 
 
-</Jumbotron>
+  <br></br>
 
-<Row>
+  <Row>
     <Col></Col>
-    <Col><Button variant="outline-dark" size="lg" block href="/book">Book Appointment</Button></Col>
-    <Col></Col>
-</Row> 
+    <Col><Button variant="outline-primary" size="lg" block href="/book">Book appointment</Button></Col>
+    <Col><Button variant="outline-dark" size="lg" block href="/gallery">View our Gallery</Button></Col>
 
-<br></br>
+    <Col></Col>
+  </Row>  
+
+</Jumbotron>;
 
 </div>
 

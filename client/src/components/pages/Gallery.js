@@ -1,18 +1,17 @@
 import React from "react";
-import { Row, Col, Button, ButtonGroup, Card, CardColumns } from 'react-bootstrap';
+import { Image, Row, Button, ButtonGroup, Card, CardColumns } from 'react-bootstrap';
 
 
 function Appointment() {
-  return (
-    <div className="container">
+return (
+<div className="container">
 
-<br></br>   
+{/* <br></br>   
 
-<Row>
-    <Col></Col>
-    <Col><h1 style={{textAlign: "center"}}>GALLERY</h1></Col>
-    <Col></Col>
-</Row> 
+<Image src="https://3.bp.blogspot.com/-jXbtMtjF_UI/XIneANCOwAI/AAAAAAAAAJA/TNx-JvWPIb8LpTIKAHu0BPqG9PGWcXwIQCLcBGAs/s1600/Artboard.png" 
+fluid style={{height: "100px"}}/>
+
+<br></br> */}
 
 <br></br>
 
