@@ -29,7 +29,7 @@ class Book extends Component {
     return (
       <div className="container">
         <br />
-        <h3>Pick a date that best fit your schedule!</h3>
+        <h3>Pick a date that best fit your schedule</h3>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Select Date: </label>

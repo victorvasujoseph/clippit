@@ -18,6 +18,7 @@ function NavTabs(){
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
+          <Nav.Link href="/Gallery">Gallery</Nav.Link>
           <Nav.Link href="/book">Book Appointment</Nav.Link>
           <Nav.Link href="/logout">Logout</Nav.Link>
         </Nav>
