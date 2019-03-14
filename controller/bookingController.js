@@ -215,19 +215,40 @@ module.exports = {
     console.log(req.params.month);
     console.log(req.params.year);
 
-    db.stylistSchedule.find({
-      stylistID: req.params.stylistID,
-      day: req.params.day,
-      month: req.params.month,
-      year: req.params.year
-    }).then(result => {
-      if (result.length !== 0) {
-        return res.send(result);
-      } else {
-        return res.send({
-          error: "No slots Found for the Requested Combination"
-        });
-      }
-    });
+    db.stylistSchedule
+      .find({
+        stylistID: req.params.stylistID,
+        day: req.params.day,
+        month: req.params.month,
+        year: req.params.year
+      })
+      .then(result => {
+        if (result.length !== 0) {
+          return res.send(result);
+        } else {
+          return res.send({
+            error: "No slots Found for the Requested Combination"
+          });
+        }
+      });
+  },
+  getCustomerSchedule: function(req,res){
+    console.log(req.params.customerID);
+
+    db.appointments
+      .find({
+        customerID: req.params.customerID,
+        state:"active"
+      })
+      .then(result => {
+        if (result.length !== 0) {
+          return res.send(result);
+        } else {
+          return res.send({
+            error: "No Active Appointments"
+          });
+        }
+      });
+
   }
 };

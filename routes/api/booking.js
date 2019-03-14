@@ -2,7 +2,13 @@ const router = require("express").Router();
 const bookingController = require("../../controller/bookingController");
 
 //get all stylist from the System for a specific date
-/* Ssmple Response
+
+/* 
+Sample Request 
+
+
+---------------------------------------
+Sample Response
 [
     {
         "name": "Victor Joseph",
@@ -37,4 +43,7 @@ router
   .route("/stylist-schedule/:stylistID/:day/:month/:year")
   .get(bookingController.getStylistSchedule);
 
+router
+    .route("/customer-schedule/:customerID")
+    .get(bookingController.getCustomerSchedule);
 module.exports = router;
