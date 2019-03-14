@@ -158,7 +158,10 @@ module.exports = {
               db.stylistSchedule
                 .findOneAndUpdate(
                   {
-                    stylistID: req.body.stylistID
+                    stylistID: req.body.stylistID,
+                    day: req.body.day,
+                    month: req.body.month,
+                    year: req.body.year
                   },
                   {
                     [req.body.timeSlot]: false
@@ -205,5 +208,26 @@ module.exports = {
             });
         }
       });
+  },
+  getStylistSchedule: function(req, res) {
+    console.log(req.params.stylistID);
+    console.log(req.params.day);
+    console.log(req.params.month);
+    console.log(req.params.year);
+
+    db.stylistSchedule.find({
+      stylistID: req.params.stylistID,
+      day: req.params.day,
+      month: req.params.month,
+      year: req.params.year
+    }).then(result => {
+      if (result.length !== 0) {
+        return res.send(result);
+      } else {
+        return res.send({
+          error: "No slots Found for the Requested Combination"
+        });
+      }
+    });
   }
 };
