@@ -11,6 +11,7 @@ class Book extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getTeam = this.getTeam.bind(this);
   }
 
   handleChange(date) {
@@ -19,10 +20,17 @@ class Book extends Component {
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    let main = this.state.startDate;
-    console.log(main.format("L"));
+  handleSubmit(event) {
+    event.preventDefault();
+    // let main = this.state.startDate;
+    alert('You chose: ' + this.state.startDate);
+    // console.log(main.format("L"));
+  }
+
+  getTeam(event) {
+    event.preventDefault();
+    this.setState = {showing: false};
+    
   }
 
   render() {
@@ -41,17 +49,21 @@ class Book extends Component {
               showDisabledMonthNavigation
               showMonthDropdown
               withPortal
-              // name="startDate"
-              // dateFormat="MM/DD/YYYY"
+            // name="startDate"
+            // dateFormat="MM/DD/YYYY"
             />
           </div>
           <div className="form-group">
-            <button className="btn btn-outline-dark">Add Date</button>
+            <button className="btn btn-outline-dark">Choose your stylist!</button>
           </div>
         </form>
       </div>
     );
   }
 }
+
+
+
+
 
 export default Book;

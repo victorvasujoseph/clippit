@@ -4,7 +4,7 @@ import NavTabs from "./components/NavTabs";
 import Home from "./components/pages/Home";
 import Logout from "./components/pages/Logout";
 import Appointments from "./components/pages/Appointments";
-import Start from "./components/pages/Start";
+// import Start from "./components/pages/Start";
 import Book from "./components/pages/Book";
 import LoginTemp from "./components/pages/LoginTemp";
 import 'react-datepicker/dist/react-datepicker.css';
