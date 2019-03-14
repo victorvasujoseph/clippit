@@ -32,5 +32,9 @@ router.route("/add-new-stylist").post(bookingController.addNewStylist);
 //get all stylist from the System
 router.route("/stylist").get(bookingController.stylist);
 router.route("/insert-availability").post(bookingController.insertAvailability);
+router.route("/book-appointment").post(bookingController.bookAppointment);
+router
+  .route("/stylist-schedule/:stylistID/:day/:month/:year")
+  .get(bookingController.getStylistSchedule);
 
 module.exports = router;
