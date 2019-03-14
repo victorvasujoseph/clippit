@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import 'whatwg-fetch';
-import { Form, Button, Image, Row, Col,} from 'react-bootstrap';
+import { Form, Button, Image } from 'react-bootstrap';
 
 // import axios from "axios";
 

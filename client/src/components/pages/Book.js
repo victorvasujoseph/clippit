@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { form, Card, CardGroup, Button } from "react-bootstrap";
+import { form, Card, CardGroup, Button, ListGroup } from "react-bootstrap";
 // import { Card, CardGroup, ListGroupItem, ListGroup  } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import addMonths from "date-fns/addMonths";
@@ -8,7 +8,7 @@ class Book extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: new Date()
+      startDate: new Date(),
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,10 +23,9 @@ class Book extends Component {
   handleSubmit(event) {
     event.preventDefault();
     // let main = this.state.startDate;
-    alert('You chose: ' + this.state.startDate);
+    alert('You chose: ' + this.state.startDate + this.state.newStylist);
     // console.log(main.format("L"));
   }
-
 
   render() {
     return (
@@ -44,33 +43,37 @@ class Book extends Component {
               showDisabledMonthNavigation
               showMonthDropdown
               withPortal
-            // name="startDate"
-            // dateFormat="MM/DD/YYYY"
             />
           </div>
           <br></br>
           <label>Choose Your Stylist!</label>
           <CardGroup>
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://4.bp.blogspot.com/-cJ8eC0qf7nc/XIWAcA_KkaI/AAAAAAAAAG0/ENXzUqyS87w7GdGekoFAHAUbRr4NaH16gCLcBGAs/w945-h600-p-k-no-nu/Christina.jpg" height="163.7"/>
+              <Card.Img variant="top" src="https://66.media.tumblr.com/32b9a3972b470ed5a131d76e2cd732b4/tumblr_poc8bs27AN1y5a3hjo2_500.jpg" />
               <Card.Body>
                 <Card.Title>Todd</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-              </Card.Text>
-                <Button variant="primary">Choose Me</Button>
+                  <ListGroup variant="flush">
+                    <ListGroup.Item>Men's Cut & Style</ListGroup.Item>
+                    <ListGroup.Item>Beard Shaves & Trims</ListGroup.Item>
+                    <ListGroup.Item>Gray Blending</ListGroup.Item>
+                  </ListGroup>
+                </Card.Text>
+                <Button variant="primary" value="option1" id="5c8552e88596910fb313748e">Choose Me</Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://1.bp.blogspot.com/-sQcDvYeOcLw/XIWC7XcWrqI/AAAAAAAAAHA/zj-ikxQr86MA9pnoXcYXcRXrdlNODiAEwCLcBGAs/w945-h600-p-k-no-nu/Christina.jpg" height="163.7" />
+              <Card.Img variant="top" src="https://66.media.tumblr.com/e08f35e1b5b148bab1196393e7a149f3/tumblr_poc8bs27AN1y5a3hjo1_500.jpg" />
               <Card.Body>
                 <Card.Title>Christina</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-              </Card.Text>
-                <Button variant="primary">Choose Me</Button>
+                  <ListGroup variant="flush">
+                    <ListGroup.Item>Hair Coloring & Highlights</ListGroup.Item>
+                    <ListGroup.Item>Scalp Care</ListGroup.Item>
+                    <ListGroup.Item>Wash & Blowout</ListGroup.Item>
+                  </ListGroup>
+                </Card.Text>
+                <Button variant="primary" value="option2" id="5c85531a5f45cc0fbf2f11e1">Choose Me</Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
@@ -78,10 +81,13 @@ class Book extends Component {
               <Card.Body>
                 <Card.Title>Julia</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-              </Card.Text>
-                <Button variant="primary">Choose Me</Button>
+                  <ListGroup variant="flush">
+                    <ListGroup.Item>Women's Cut and Style</ListGroup.Item>
+                    <ListGroup.Item>Hair Coloring & Higlights</ListGroup.Item>
+                    <ListGroup.Item>Hair Treatment</ListGroup.Item>
+                  </ListGroup>
+                </Card.Text>
+                <Button variant="primary" value="option3" id="5c85c76b09acfa132dd8ea59">Choose Me</Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
@@ -89,10 +95,13 @@ class Book extends Component {
               <Card.Body>
                 <Card.Title>Xavier</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-              </Card.Text>
-                <Button variant="primary">Choose Me</Button>
+                  <ListGroup variant="flush">
+                    <ListGroup.Item>Hair Coloring & Highlights</ListGroup.Item>
+                    <ListGroup.Item>Men/Women Cut & Style</ListGroup.Item>
+                    <ListGroup.Item>Wash and Blowout</ListGroup.Item>
+                  </ListGroup>
+                </Card.Text>
+                <Button variant="primary" value="option4" id="5c85c7a14fc3af1346278599">Choose Me</Button>
               </Card.Body>
             </Card>
           </CardGroup>
