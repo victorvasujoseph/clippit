@@ -123,5 +123,132 @@ module.exports = {
       .catch(function(err) {
         console.log(err.message);
       });
+  },
+  bookAppointment: function(req, res) {
+    console.log(req.body.stylistID);
+    console.log(req.body.day);
+    console.log(req.body.month);
+    console.log(req.body.year);
+    console.log(req.body.timeSlot);
+    console.log(req.body.customerID);
+
+    db.appointments
+      .find({
+        stylistID: req.body.stylistID,
+        day: req.body.day,
+        month: req.body.month,
+        year: req.body.year,
+        timeSlot: req.body.timeSlot
+      })
+      .then(result => {
+        // There a no appointments for this specific stylist at this time
+        // create a new entry
+        if (result.length === 0) {
+          db.appointments
+            .create({
+              stylistID: req.body.stylistID,
+              day: req.body.day,
+              month: req.body.month,
+              year: req.body.year,
+              timeSlot: req.body.timeSlot,
+              customerID: req.body.customerID
+            })
+            .then(value => {
+              console.log(value.stylistID);
+              db.stylistSchedule
+                .findOneAndUpdate(
+                  {
+                    stylistID: req.body.stylistID,
+                    day: req.body.day,
+                    month: req.body.month,
+                    year: req.body.year
+                  },
+                  {
+                    [req.body.timeSlot]: false
+                  },
+                  { new: true }
+                )
+                .then(value => {
+                  return res.send(value);
+                });
+            });
+        } else {
+          result.map(value => {
+            // check if the existing appointments for that day is active
+            console.log(value.state);
+            if (value.state === "active") {
+              return res.send({ error: "This Stylist is busy at this time" });
+            }
+          });
+          // Create a row since none of the appointments are not active
+          db.appointments
+            .create({
+              stylistID: req.body.stylistID,
+              day: req.body.day,
+              month: req.body.month,
+              year: req.body.year,
+              timeSlot: req.body.timeSlot,
+              customerID: req.body.customerID
+            })
+            .then(value => {
+              console.log(value.stylistID);
+              db.stylistSchedule
+                .findOneAndUpdate(
+                  {
+                    stylistID: req.body.stylistID
+                  },
+                  {
+                    [req.body.timeSlot]: false
+                  },
+                  { new: true }
+                )
+                .then(value => {
+                  return res.send(value);
+                });
+            });
+        }
+      });
+  },
+  getStylistSchedule: function(req, res) {
+    console.log(req.params.stylistID);
+    console.log(req.params.day);
+    console.log(req.params.month);
+    console.log(req.params.year);
+
+    db.stylistSchedule
+      .find({
+        stylistID: req.params.stylistID,
+        day: req.params.day,
+        month: req.params.month,
+        year: req.params.year
+      })
+      .then(result => {
+        if (result.length !== 0) {
+          return res.send(result);
+        } else {
+          return res.send({
+            error: "No slots Found for the Requested Combination"
+          });
+        }
+      });
+  },
+  getCustomerSchedule: function(req,res){
+    console.log(req.params.customerID);
+
+    db.appointments
+      .find({
+        customerID: req.params.customerID,
+        state:"active"
+      })
+      .then(result => {
+        if (result.length !== 0) {
+          return res.send(result);
+        } else {
+          return res.send({
+            error: "No Active Appointments"
+          });
+        }
+      });
+
   }
 };
