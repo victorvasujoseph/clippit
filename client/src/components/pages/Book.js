@@ -46,6 +46,12 @@ class Book extends Component {
             />
           </div>
           <br></br>
+          <div className="form-group">
+            <button className="btn btn-outline-dark">Choose your date</button>
+          </div>
+        </form>
+
+        <form onSubmit={this.handleStylist}>
           <label>Choose Your Stylist!</label>
           <CardGroup>
             <Card style={{ width: '18rem' }}>
@@ -59,7 +65,7 @@ class Book extends Component {
                     <ListGroup.Item>Gray Blending</ListGroup.Item>
                   </ListGroup>
                 </Card.Text>
-                <Button variant="primary" value="option1" id="5c8552e88596910fb313748e">Choose Me</Button>
+                <Button variant="primary" value="option1" id="5c8552e88596910fb313748e">Book Todd</Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
@@ -73,7 +79,7 @@ class Book extends Component {
                     <ListGroup.Item>Wash & Blowout</ListGroup.Item>
                   </ListGroup>
                 </Card.Text>
-                <Button variant="primary" value="option2" id="5c85531a5f45cc0fbf2f11e1">Choose Me</Button>
+                <Button variant="primary" value="option2" id="5c85531a5f45cc0fbf2f11e1">Book Christina</Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
@@ -87,7 +93,7 @@ class Book extends Component {
                     <ListGroup.Item>Hair Treatment</ListGroup.Item>
                   </ListGroup>
                 </Card.Text>
-                <Button variant="primary" value="option3" id="5c85c76b09acfa132dd8ea59">Choose Me</Button>
+                <Button variant="primary" value="option3" id="5c85c76b09acfa132dd8ea59">Book Julia</Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
@@ -101,15 +107,11 @@ class Book extends Component {
                     <ListGroup.Item>Wash and Blowout</ListGroup.Item>
                   </ListGroup>
                 </Card.Text>
-                <Button variant="primary" value="option4" id="5c85c7a14fc3af1346278599">Choose Me</Button>
+                <Button variant="primary" value="option4" id="5c85c7a14fc3af1346278599">Book Xavier</Button>
               </Card.Body>
             </Card>
           </CardGroup>
-          <br></br>
-          <div className="form-group">
-            <button className="btn btn-outline-dark">Book Your Appointment!</button>
-          </div>
-        </form>
+          </form>
       </div>
     );
   }
