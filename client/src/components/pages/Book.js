@@ -3,7 +3,7 @@ import { form, Card, CardGroup, Button, ListGroup } from "react-bootstrap";
 // import { Card, CardGroup, ListGroupItem, ListGroup  } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import addMonths from "date-fns/addMonths";
-
+import * as moment from "moment";
 
 class Book extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class Book extends Component {
 
   handleChange(date) {
     this.setState({
-      startDate: date
+      startDate: moment(date).format('MM/DD/YYYY')
     });
   }
 
