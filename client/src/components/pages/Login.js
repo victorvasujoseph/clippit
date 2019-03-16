@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import 'whatwg-fetch';
-import { Form, Button, Image,} from 'react-bootstrap';
+import { Form, Button, Image, Modal, ButtonGroup, } from 'react-bootstrap';
 
 // import axios from "axios";
 
@@ -13,7 +13,11 @@ class Login extends Component {
     constructor(props) {
         super(props);
 
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+
         this.state = {
+            show: false,
             isLoading: true,
             token: '',
             signUpError: '',
@@ -37,6 +41,14 @@ class Login extends Component {
         this.onSignUp = this.onSignUp.bind(this);
         this.logout = this.logout.bind(this);
     }
+
+    handleClose() {
+        this.setState({ show: false });
+    }
+    
+    handleShow() {
+        this.setState({ show: true });
+    }   
 
     componentDidMount() {
         const obj = getFromStorage('the_main_app');
@@ -246,76 +258,107 @@ class Login extends Component {
                             ) : (null)
                         }
                         <Form>
-                        <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control 
-                            type="email" 
-                            placeholder="Enter email" 
-                            value={signInEmail}
-                            onChange={this.onTextboxChangeSignInEmail}
-                        />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control 
-                            type="password" 
-                            placeholder="Password" 
-                            value={signInPassword}
-                            onChange={this.onTextboxChangeSignInPassword}
-                        />
-                        </Form.Group>
-                        <Button variant="outline-dark" type="submit" onClick={this.onSignIn} >Login</Button>
-                        </Form>
-                    </div>
-                    <br />
-                    <h6 style={{textAlign: "center"}}>Don't have an account? No worries, you can make one below.</h6>
-                    <div>
-                        {
-                            (signUpError) ? (
-                                <p>{signUpError}</p>
-                            ) : (null)
-                        }
-                        <Form>
-                        <Form.Group controlId="formBasicFirstName">
-                        <Form.Label>First Name</Form.Label>
-                        <Form.Control 
-                            type="text" 
-                            placeholder="First Name" 
-                            value={signUpFirstName}
-                            onChange={this.onTextboxChangeSignUpFirstName}
-                        />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicLastName">
-                        <Form.Label>Last Name</Form.Label>
-                        <Form.Control 
-                            type="text" 
-                            placeholder="Last Name" 
-                            value={signUpLastName}
-                            onChange={this.onTextboxChangeSignUpLastName}
-                        />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control 
-                            type="text" 
-                            placeholder="Email" 
-                            value={signUpEmail}
-                            onChange={this.onTextboxChangeSignUpEmail}
-                        />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control 
-                            type="password" 
-                            placeholder="Password" 
-                            value={signUpPassword}
-                            onChange={this.onTextboxChangeSignUpPassword}
-                        />
-                        </Form.Group>
 
-                        <Button variant="outline-dark" type="submit" onClick={this.onSignUp}>Sign Up</Button>
+                            <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control 
+                                type="email" 
+                                placeholder="Enter email" 
+                                value={signInEmail}
+                                onChange={this.onTextboxChangeSignInEmail}
+                            />
+                            </Form.Group>
+
+                            <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control 
+                                type="password" 
+                                placeholder="Password" 
+                                value={signInPassword}
+                                onChange={this.onTextboxChangeSignInPassword}
+                            />
+                            </Form.Group>
+
+                            <ButtonGroup>
+                                <Button variant="outline-primary" type="submit" onClick={this.onSignIn} >Login</Button>
+                            </ButtonGroup>
+
+                            <br></br>
+                            <br></br>
+
+                            <ButtonGroup>
+                                <Button variant="outline-dark" onClick={this.handleShow}>Don't have an account?</Button>
+                            </ButtonGroup>
+
+                            <Modal show={this.state.show} onHide={this.handleClose}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Create an Account</Modal.Title>
+                                </Modal.Header>
+
+                                <Modal.Body>
+                                    <div>
+                                        {
+                                            (signUpError) ? (
+                                                <p>{signUpError}</p>
+                                            ) : (null)
+                                        }
+                                        
+                                        <Form>
+                                            <Form.Group controlId="formBasicFirstName">
+                                            <Form.Label>First Name</Form.Label>
+                                            <Form.Control 
+                                                type="text" 
+                                                placeholder="First Name" 
+                                                value={signUpFirstName}
+                                                onChange={this.onTextboxChangeSignUpFirstName}
+                                            />
+                                            
+                                            </Form.Group>
+                                            <Form.Group controlId="formBasicLastName">
+                                            <Form.Label>Last Name</Form.Label>
+                                            <Form.Control 
+                                                type="text" 
+                                                placeholder="Last Name" 
+                                                value={signUpLastName}
+                                                onChange={this.onTextboxChangeSignUpLastName}
+                                            />
+
+                                            </Form.Group>
+                                            <Form.Group controlId="formBasicEmail">
+                                            <Form.Label>Email</Form.Label>
+                                            <Form.Control 
+                                                type="text" 
+                                                placeholder="Email" 
+                                                value={signUpEmail}
+                                                onChange={this.onTextboxChangeSignUpEmail}
+                                            />
+
+                                            </Form.Group>
+                                            <Form.Group controlId="formBasicPassword">
+                                            <Form.Label>Password</Form.Label>
+                                            <Form.Control 
+                                                type="password" 
+                                                placeholder="Password" 
+                                                value={signUpPassword}
+                                                onChange={this.onTextboxChangeSignUpPassword}
+                                            />
+                                            </Form.Group>
+
+                                            <Button variant="outline-dark" type="submit" onClick={this.onSignUp}>Sign Up</Button>
+                                        </Form>
+                                    </div>
+                                </Modal.Body>
+
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={this.handleClose}>
+                                    Close
+                                    </Button>
+                                    <Button variant="primary" onClick={this.handleClose}>
+                                    Save Changes
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
                         </Form>
-                        <br></br>
                     </div>
                 </div>
             );
