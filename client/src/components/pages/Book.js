@@ -4,6 +4,7 @@ import { form, Card, CardGroup, Button, ListGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import addMonths from "date-fns/addMonths";
 
+
 class Book extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ class Book extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleStylist = this.handleStylist.bind(this);
   }
 
   handleChange(date) {
@@ -23,8 +25,12 @@ class Book extends Component {
   handleSubmit(event) {
     event.preventDefault();
     // let main = this.state.startDate;
-    alert('You chose: ' + this.state.startDate + this.state.newStylist);
+    alert('You chose: ' + this.state.startDate);
     // console.log(main.format("L"));
+  }
+
+  handleStylist(event) {
+    event.preventDefault();
   }
 
   render() {
@@ -32,6 +38,7 @@ class Book extends Component {
       <div className="container">
         <br />
         <h3>Pick a date that best fit your schedule!</h3>
+        <br/>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Select Date: </label>
@@ -45,12 +52,13 @@ class Book extends Component {
               withPortal
             />
           </div>
-          <br></br>
+
           <div className="form-group">
             <button className="btn btn-outline-dark">Choose your date</button>
           </div>
         </form>
 
+        <br></br>
         <form onSubmit={this.handleStylist}>
           <label>Choose Your Stylist!</label>
           <CardGroup>
@@ -65,7 +73,7 @@ class Book extends Component {
                     <ListGroup.Item>Gray Blending</ListGroup.Item>
                   </ListGroup>
                 </Card.Text>
-                <Button variant="primary" value="option1" id="5c8552e88596910fb313748e">Book Todd</Button>
+                <Button variant="outline-dark" value="option1" id="5c8552e88596910fb313748e">Book Todd</Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
@@ -79,7 +87,7 @@ class Book extends Component {
                     <ListGroup.Item>Wash & Blowout</ListGroup.Item>
                   </ListGroup>
                 </Card.Text>
-                <Button variant="primary" value="option2" id="5c85531a5f45cc0fbf2f11e1">Book Christina</Button>
+                <Button variant="outline-dark" value="option2" id="5c85531a5f45cc0fbf2f11e1">Book Christina</Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
@@ -93,7 +101,7 @@ class Book extends Component {
                     <ListGroup.Item>Hair Treatment</ListGroup.Item>
                   </ListGroup>
                 </Card.Text>
-                <Button variant="primary" value="option3" id="5c85c76b09acfa132dd8ea59">Book Julia</Button>
+                <Button variant="outline-dark" value="option3" id="5c85c76b09acfa132dd8ea59">Book Julia</Button>
               </Card.Body>
             </Card>
             <Card style={{ width: '18rem' }}>
@@ -107,11 +115,11 @@ class Book extends Component {
                     <ListGroup.Item>Wash and Blowout</ListGroup.Item>
                   </ListGroup>
                 </Card.Text>
-                <Button variant="primary" value="option4" id="5c85c7a14fc3af1346278599">Book Xavier</Button>
+                <Button variant="outline-dark" value="option4" id="5c85c7a14fc3af1346278599">Book Xavier</Button>
               </Card.Body>
             </Card>
           </CardGroup>
-          </form>
+        </form>
       </div>
     );
   }
