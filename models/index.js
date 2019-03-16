@@ -2,5 +2,6 @@ module.exports = {
   user: require("./user"),
   userSession: require("./userSession"),
   stylist: require("./stylist"),
-  stylistSchedule: require("./stylistScheduler")
+  stylistSchedule: require("./stylistScheduler"),
+  appointments: require("./appointment")
 };
