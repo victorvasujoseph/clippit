@@ -240,7 +240,6 @@ function Home() {
     <Col></Col>
     <Col><Button variant="outline-primary" size="lg" block href="/book">Book appointment</Button></Col>
     <Col><Button variant="outline-dark" size="lg" block href="/gallery">View our Gallery</Button></Col>
-
     <Col></Col>
   </Row>  
 

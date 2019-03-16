@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Row, Button, ButtonGroup, Card, CardColumns } from 'react-bootstrap';
+import { Row, Button, ButtonGroup, Card, CardColumns } from 'react-bootstrap';
 
 
 function Appointment() {
