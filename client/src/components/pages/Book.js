@@ -28,7 +28,6 @@ class Book extends Component {
     event.preventDefault();
     // let main = this.state.startDate;
     alert('You chose: ' + this.state.startDate);
-    // console.log(main.moment().subtract(10, 'days').calendar());
   }
 
   handleToggleClick() {
@@ -37,6 +36,7 @@ class Book extends Component {
       !prevState.showWarning
     }))
   }
+
   handleStylist() {
     this.setState({ show: false });
   }
