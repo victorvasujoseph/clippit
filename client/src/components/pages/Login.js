@@ -14,16 +14,18 @@ class Login extends Component {
         super(props);
 
         this.state = {
-            isLoading: true,
-            token: '',
-            signUpError: '',
-            signInError: '',
-            signInEmail: '',
-            signInPassword: '',
-            signUpFirstName: '',
-            signUpLastName: '',
-            signUpEmail: '',
-            signUpPassword: '',
+          isLoading: true,
+          token: "",
+          signUpError: "",
+          signInError: "",
+          signInEmail: "",
+          signInPassword: "",
+          signUpFirstName: "",
+          signUpLastName: "",
+          signUpEmail: "",
+          
+          signUpPassword: ""
+        //   customerID:""
         };
 
         this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -41,22 +43,23 @@ class Login extends Component {
     componentDidMount() {
         const obj = getFromStorage('the_main_app');
         if (obj && obj.token) {
+            console.log(obj);
             const { token } = obj;
             //verify token
-            fetch('/api/account/verify?token=' + token)
-                .then(res => res.json())
-                .then(json => {
-                    if (json.success) {
-                        this.setState({
-                            token,
-                            isLoading: false
-                        });
-                    } else {
-                        this.setState({
-                            isLoading: false,
-                        });
-                    }
-                });
+            fetch("/api/auth/account/verify?token=" + token)
+              .then(res => res.json())
+              .then(json => {
+                if (json.success) {
+                  this.setState({
+                    token,
+                    isLoading: false
+                  });
+                } else {
+                  this.setState({
+                    isLoading: false
+                  });
+                }
+              });
         } else {
             this.setState({
                 isLoading: false,
@@ -170,8 +173,12 @@ class Login extends Component {
             }),
         }).then(res => res.json())
             .then(json => {
+                console.log(json);
                 if (json.success) {
-                    setInStorage('the_main_app', { token: json.token, customerID: json.customerID });
+                    setInStorage("the_main_app", {
+                      token: json.token,
+                      customerID: json.userID
+                    });
                     this.setState({
                         signUpError: json.message,
                         isLoading: false,
