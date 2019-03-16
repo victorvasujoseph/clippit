@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 // import { Card, CardGroup, ListGroupItem, ListGroup  } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
-import addMonths from "date-fns/addMonths";
+import addMonths from "date-fns/addMonths"; 
+import 'whatwg-fetch';
+import moment from 'moment';
 
 class Book extends Component {
   constructor(props) {
@@ -21,8 +23,32 @@ class Book extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let main = this.state.startDate;
-    console.log(main.format("L"));
+    // let main = this.state.startDate;
+    console.log(this.state.startDate);
+    // console.log(main.format("L"));
+    // console.log((moment(this.state.startDate));
+
+    var day = moment(this.state.startDate).format("DD");
+    var month = moment(this.state.startDate).format("MM");
+    var year = moment(this.state.startDate).format("YYYY");
+    // get the list of stylist for the selected Date
+    fetch(
+      "/api/booking/stylist-available" +
+        "/" +
+        day +
+        "/" +
+        month +
+        "/" +
+        year
+    )
+      .then(res => {
+        if (res) {
+          console.log(res);
+        } else {
+          console.log("API call to Stylist failed");
+        }
+      });
+  
   }
 
   render() {
