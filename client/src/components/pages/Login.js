@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import 'whatwg-fetch';
-import { Form, Button, Image } from 'react-bootstrap';
+import { Form, Button, Image,} from 'react-bootstrap';
 
 // import axios from "axios";
 
@@ -9,21 +9,23 @@ import {
     setInStorage,
 } from '../utils/storage';
 
-class Home extends Component {
+class Login extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            isLoading: true,
-            token: '',
-            signUpError: '',
-            signInError: '',
-            signInEmail: '',
-            signInPassword: '',
-            signUpFirstName: '',
-            signUpLastName: '',
-            signUpEmail: '',
-            signUpPassword: '',
+          isLoading: true,
+          token: "",
+          signUpError: "",
+          signInError: "",
+          signInEmail: "",
+          signInPassword: "",
+          signUpFirstName: "",
+          signUpLastName: "",
+          signUpEmail: "",
+          
+          signUpPassword: ""
+        //   customerID:""
         };
 
         this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -41,22 +43,23 @@ class Home extends Component {
     componentDidMount() {
         const obj = getFromStorage('the_main_app');
         if (obj && obj.token) {
+            console.log(obj);
             const { token } = obj;
             //verify token
-            fetch('/api/account/verify?token=' + token)
-                .then(res => res.json())
-                .then(json => {
-                    if (json.success) {
-                        this.setState({
-                            token,
-                            isLoading: false
-                        });
-                    } else {
-                        this.setState({
-                            isLoading: false,
-                        });
-                    }
-                });
+            fetch("/api/auth/account/verify?token=" + token)
+              .then(res => res.json())
+              .then(json => {
+                if (json.success) {
+                  this.setState({
+                    token,
+                    isLoading: false
+                  });
+                } else {
+                  this.setState({
+                    isLoading: false
+                  });
+                }
+              });
         } else {
             this.setState({
                 isLoading: false,
@@ -155,6 +158,9 @@ class Home extends Component {
         this.setState({
             isloading: true,
         })
+
+        console.log(this.state);
+
         // Post request to backend
         fetch('/api/auth/account/signin', {
             method: 'POST',
@@ -167,15 +173,20 @@ class Home extends Component {
             }),
         }).then(res => res.json())
             .then(json => {
+                console.log(json);
                 if (json.success) {
-                    setInStorage('the_main_app', { token: json.token });
+                    setInStorage("the_main_app", {
+                      token: json.token,
+                      customerID: json.userID
+                    });
                     this.setState({
                         signUpError: json.message,
                         isLoading: false,
                         signInPassword: '',
                         signInEmail: '',
                         token: json.token,
-                    });
+                        customerID: json.customerID
+                    });                                                                                                        
                 } else {
                     this.setState({
                         signInError: json.message,
@@ -260,7 +271,7 @@ class Home extends Component {
                             onChange={this.onTextboxChangeSignInPassword}
                         />
                         </Form.Group>
-                        <Button variant="outline-dark" type="submit" onClick={this.onSignIn} href="/home">Login</Button>
+                        <Button variant="outline-dark" type="submit" onClick={this.onSignIn} >Login</Button>
                         </Form>
                     </div>
                     <br />
@@ -309,7 +320,7 @@ class Home extends Component {
                         />
                         </Form.Group>
 
-                        <Button variant="outline-dark" type="submit" onClick={this.onSignUp} href="/home">Sign Up</Button>
+                        <Button variant="outline-dark" type="submit" onClick={this.onSignUp}>Sign Up</Button>
                         </Form>
                         <br></br>
                     </div>
@@ -324,4 +335,4 @@ class Home extends Component {
         );
     }
 }
-export default Home;
+export default Login;
