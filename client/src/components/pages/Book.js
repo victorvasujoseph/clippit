@@ -42,13 +42,10 @@ class Book extends Component {
       "/" +
       year
     )
-      .then(res => {
-        if (res) {
-          console.log(res);
-        } else {
-          console.log("API call to Stylist failed");
-        }
-      });
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
 
   }
 
