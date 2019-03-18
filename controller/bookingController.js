@@ -7,7 +7,7 @@ module.exports = {
     const { fName } = body;
     const { lName } = body;
     const { image } = body;
-    
+
     console.log(fName);
     console.log(lName);
     console.log(image);
@@ -73,7 +73,7 @@ module.exports = {
               console.log(err.message);
             });
 
-          return { name: name, id: value._id };
+          return { name: name, id: value._id, image:value.image };
         });
 
         return res.send(response);
