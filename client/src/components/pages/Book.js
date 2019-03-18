@@ -4,23 +4,11 @@ import {
   form,
   Card,
   CardDeck,
-  CardGroup,
-  CardColumns,
   Button,
-  CardBody,
-  CardImg,
-  CardTitle,
-  CardSubtitle,
-  CardText,
   ListGroup,
   Modal,
-  ModalDialog,
-  Row,
-  Form,
-  Col,
   ButtonGroup
 } from "react-bootstrap";
-// import { Card, CardGroup, ListGroupItem, ListGroup  } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import addMonths from "date-fns/addMonths";
 import "whatwg-fetch";
@@ -37,8 +25,8 @@ class Book extends Component {
       showTimeSlot: false,
       value: "value",
       listStylist: [],
-      selectedStylist:{},
-      appointmentConfirmation:false,
+      selectedStylist: {},
+      appointmentConfirmation: false,
       slot1: false,
       slot2: false,
       slot3: false,
@@ -47,7 +35,8 @@ class Book extends Component {
       slot6: false,
       slot7: false,
       slot8: false,
-      selectedTimeSlot:""
+      selectedTimeSlot: "",
+      selectedSlot: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,6 +46,7 @@ class Book extends Component {
     this.handleTime = this.handleTime.bind(this);
     this.handleToggleClick = this.handleToggleClick.bind(this);
     this.handleStylistSelect = this.handleStylistSelect.bind(this);
+    this.handleBookAppointment = this.handleBookAppointment.bind(this);
   }
 
   handleChange(date) {
@@ -85,24 +75,65 @@ class Book extends Component {
       });
   }
 
-  handleTime(timeSlot) {
+  handleBookAppointment() {
     var day = moment(this.state.startDate).format("DD");
     var month = moment(this.state.startDate).format("MM");
     var year = moment(this.state.startDate).format("YYYY");
     const obj = getFromStorage("the_main_app");
     const { customerID } = obj;
     console.log(customerID);
-    console.log(timeSlot);
     console.log(this.state.selectedStylist.id);
     console.log(this.state.selectedStylist.name);
+    console.log(this.state.selectedSlot);
     console.log(day);
     console.log(month);
     console.log(year);
-    let time="";
+
+    fetch("/api/booking/book-appointment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        stylistID: this.state.selectedStylist.id,
+        day: moment(this.state.startDate).format("DD"),
+        month: moment(this.state.startDate).format("MM"),
+        year: moment(this.state.startDate).format("YYYY"),
+        timeSlot: this.state.selectedSlot,
+        customerID: customerID
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          show: false,
+          appointmentConfirmation: false,
+          showStylist: false,
+          showTimeSlot: false,
+          value: "value",
+          listStylist: [],
+          selectedStylist: {},
+          slot1: false,
+          slot2: false,
+          slot3: false,
+          slot4: false,
+          slot5: false,
+          slot6: false,
+          slot7: false,
+          slot8: false,
+          selectedTimeSlot: "",
+          selectedSlot: ""
+        });
+      });
+  }
+
+  handleTime(timeSlot) {
+    let time = "";
 
     switch (timeSlot) {
       case "slot1":
-        time="8:00 AM";
+        time = "8:00 AM";
         break;
       case "slot2":
         time = "9:00 AM";
@@ -131,9 +162,9 @@ class Book extends Component {
 
     this.setState({
       appointmentConfirmation: true,
-      selectedTimeSlot: time
+      selectedTimeSlot: time,
+      selectedSlot: timeSlot
     });
-    
   }
 
   handleToggleClick(event) {
@@ -144,7 +175,7 @@ class Book extends Component {
   handleClose() {
     this.setState({
       show: false,
-      appointmentConfirmation:false
+      appointmentConfirmation: false
     });
   }
   handleShow() {
@@ -401,7 +432,6 @@ class Book extends Component {
         )}
         <br />
         <br />
-        {/* {this.state.appointmentConfirmation && ( */}
         <Modal
           {...this.props}
           show={this.state.appointmentConfirmation}
@@ -412,9 +442,7 @@ class Book extends Component {
               <Modal.Title>Let's Confirm Your Appointment</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <p>
-                You Have Selected the Following Slot for your Appointment
-              </p>
+              <p>You Have Selected the Following Slot for your Appointment</p>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   Date : {moment(this.state.startDate).format("DD")}
@@ -427,21 +455,18 @@ class Book extends Component {
                   {" "}
                   Year : {moment(this.state.startDate).format("YYYY")}
                 </ListGroup.Item>
-                <ListGroup.Item>Time : {this.state.selectedTimeSlot}</ListGroup.Item>
+                <ListGroup.Item>
+                  Time : {this.state.selectedTimeSlot}
+                </ListGroup.Item>
               </ListGroup>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="primary">Confirm Appointment</Button>
+              <Button variant="primary" onClick={this.handleBookAppointment}>
+                Confirm Appointment
+              </Button>
             </Modal.Footer>
           </Modal.Dialog>
         </Modal>
-        {/* )} */}
-        {/* <br />
-          <br />
-          <button className="btn btn-outline-dark" type="submit" value="Submit">
-            {" "}
-            Book Appointment{" "}
-          </button> */}
       </div>
     );
   }
