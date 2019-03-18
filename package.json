@@ -34,6 +34,8 @@
     "if-env": "^1.0.4",
     "moment": "^2.24.0",
     "mongoose": "^5.4.15",
+    "path": "^0.12.7",
+    "react-moment": "^0.8.4",
     "whatwg-fetch": "^3.0.0"
   }
 }
