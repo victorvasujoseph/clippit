@@ -46,7 +46,8 @@ class Book extends Component {
       slot5: false,
       slot6: false,
       slot7: false,
-      slot8: false
+      slot8: false,
+      selectedTimeSlot:""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -97,9 +98,40 @@ class Book extends Component {
     console.log(day);
     console.log(month);
     console.log(year);
+    let time="";
+
+    switch (timeSlot) {
+      case "slot1":
+        time="8:00 AM";
+        break;
+      case "slot2":
+        time = "9:00 AM";
+        break;
+      case "slot3":
+        time = "10:00 AM";
+        break;
+      case "slot4":
+        time = "11:00 AM";
+        break;
+      case "slot5":
+        time = "1:00 PM";
+        break;
+      case "slot6":
+        time = "2:00 PM";
+        break;
+      case "slot7":
+        time = "3:00 PM";
+        break;
+      case "slot8":
+        time = "4:00 PM";
+        break;
+      default:
+        break;
+    }
 
     this.setState({
-      appointmentConfirmation: true
+      appointmentConfirmation: true,
+      selectedTimeSlot: time
     });
     
   }
@@ -395,7 +427,7 @@ class Book extends Component {
                   {" "}
                   Year : {moment(this.state.startDate).format("YYYY")}
                 </ListGroup.Item>
-                <ListGroup.Item>Time : </ListGroup.Item>
+                <ListGroup.Item>Time : {this.state.selectedTimeSlot}</ListGroup.Item>
               </ListGroup>
             </Modal.Body>
             <Modal.Footer>
