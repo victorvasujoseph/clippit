@@ -124,7 +124,11 @@ class Book extends Component {
             />
           </div>
           <div className="form-group">
-            <button className="btn btn-outline-dark" onClick={this.handleShow}>
+            <button
+              variant="primary"
+              className="btn btn-outline-dark"
+              onClick={this.handleShow}
+            >
               {" "}
               Choose your date{" "}
             </button>
@@ -146,19 +150,15 @@ class Book extends Component {
                         <ListGroup.Item>
                           Hair Coloring & Highlights
                         </ListGroup.Item>
-                        <ListGroup.Item>
-                          Scalp Care
-                        </ListGroup.Item>
-                        <ListGroup.Item>
-                          Wash & Blowout
-                        </ListGroup.Item>
+                        <ListGroup.Item>Scalp Care</ListGroup.Item>
+                        <ListGroup.Item>Wash & Blowout</ListGroup.Item>
                       </ListGroup>
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Button variant="primary">
+                    <button variant="primary" className="btn btn-outline-dark">
                       Pick {value.name}
-                    </Button>
+                    </button>
                   </Card.Footer>
                 </Card>
               );
