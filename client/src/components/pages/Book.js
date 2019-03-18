@@ -446,15 +446,7 @@ class Book extends Component {
               <p>You Have Selected the Following Slot for your Appointment</p>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  Date : {moment(this.state.startDate).format("DD")}
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  {" "}
-                  Month : {moment(this.state.startDate).format("MM")}
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  {" "}
-                  Year : {moment(this.state.startDate).format("YYYY")}
+                  Date :  {moment(this.state.startDate).format("MM")}/{moment(this.state.startDate).format("DD")}/{moment(this.state.startDate).format("YYYY")}
                 </ListGroup.Item>
                 <ListGroup.Item>
                   Time : {this.state.selectedTimeSlot}
