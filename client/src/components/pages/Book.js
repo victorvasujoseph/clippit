@@ -38,6 +38,7 @@ class Book extends Component {
       value: "value",
       listStylist: [],
       selectedStylist:{},
+      appointmentConfirmation:false,
       slot1: false,
       slot2: false,
       slot3: false,
@@ -96,6 +97,11 @@ class Book extends Component {
     console.log(day);
     console.log(month);
     console.log(year);
+
+    this.setState({
+      appointmentConfirmation: true
+    });
+    
   }
 
   handleToggleClick(event) {
@@ -105,7 +111,8 @@ class Book extends Component {
 
   handleClose() {
     this.setState({
-      show: false
+      show: false,
+      appointmentConfirmation:false
     });
   }
   handleShow() {
@@ -230,9 +237,15 @@ class Book extends Component {
             </label>
             <ButtonGroup size="lg">
               {this.state.slot1 ? (
-                <Button variant="light" onClick={()=>{
-                  this.handleTime("slot1");
-                }}> 8:00 AM </Button>
+                <Button
+                  variant="light"
+                  onClick={() => {
+                    this.handleTime("slot1");
+                  }}
+                >
+                  {" "}
+                  8:00 AM{" "}
+                </Button>
               ) : (
                 <Button variant="light">
                   {" "}
@@ -240,9 +253,15 @@ class Book extends Component {
                 </Button>
               )}
               {this.state.slot2 ? (
-                <Button variant="light" onClick={() => {
-                  this.handleTime("slot2");
-                }}> 9:00 AM </Button>
+                <Button
+                  variant="light"
+                  onClick={() => {
+                    this.handleTime("slot2");
+                  }}
+                >
+                  {" "}
+                  9:00 AM{" "}
+                </Button>
               ) : (
                 <Button variant="light">
                   {" "}
@@ -250,9 +269,15 @@ class Book extends Component {
                 </Button>
               )}
               {this.state.slot3 ? (
-                <Button variant="light" onClick={() => {
-                  this.handleTime("slot3");
-                }}> 10:00 AM </Button>
+                <Button
+                  variant="light"
+                  onClick={() => {
+                    this.handleTime("slot3");
+                  }}
+                >
+                  {" "}
+                  10:00 AM{" "}
+                </Button>
               ) : (
                 <Button variant="light">
                   {" "}
@@ -260,9 +285,15 @@ class Book extends Component {
                 </Button>
               )}
               {this.state.slot4 ? (
-                <Button variant="light" onClick={() => {
-                  this.handleTime("slot4");
-                }}> 11:00 AM </Button>
+                <Button
+                  variant="light"
+                  onClick={() => {
+                    this.handleTime("slot4");
+                  }}
+                >
+                  {" "}
+                  11:00 AM{" "}
+                </Button>
               ) : (
                 <Button variant="light">
                   {" "}
@@ -270,9 +301,15 @@ class Book extends Component {
                 </Button>
               )}
               {this.state.slot5 ? (
-                <Button variant="light" onClick={() => {
-                  this.handleTime("slot5");
-                }}> 1:00 PM </Button>
+                <Button
+                  variant="light"
+                  onClick={() => {
+                    this.handleTime("slot5");
+                  }}
+                >
+                  {" "}
+                  1:00 PM{" "}
+                </Button>
               ) : (
                 <Button variant="light">
                   {" "}
@@ -280,9 +317,15 @@ class Book extends Component {
                 </Button>
               )}
               {this.state.slot6 ? (
-                <Button variant="light" onClick={() => {
-                  this.handleTime("slot6");
-                }}> 2:00 PM </Button>
+                <Button
+                  variant="light"
+                  onClick={() => {
+                    this.handleTime("slot6");
+                  }}
+                >
+                  {" "}
+                  2:00 PM{" "}
+                </Button>
               ) : (
                 <Button variant="light">
                   {" "}
@@ -290,9 +333,15 @@ class Book extends Component {
                 </Button>
               )}
               {this.state.slot7 ? (
-                <Button variant="light" onClick={() => {
-                  this.handleTime("slot7");
-                }}> 3:00 PM </Button>
+                <Button
+                  variant="light"
+                  onClick={() => {
+                    this.handleTime("slot7");
+                  }}
+                >
+                  {" "}
+                  3:00 PM{" "}
+                </Button>
               ) : (
                 <Button variant="light">
                   {" "}
@@ -300,9 +349,15 @@ class Book extends Component {
                 </Button>
               )}
               {this.state.slot8 ? (
-                <Button variant="light" onClick={() => {
-                  this.handleTime("slot8");
-                }}> 4:00 PM </Button>
+                <Button
+                  variant="light"
+                  onClick={() => {
+                    this.handleTime("slot8");
+                  }}
+                >
+                  {" "}
+                  4:00 PM{" "}
+                </Button>
               ) : (
                 <Button variant="light">
                   {" "}
@@ -314,6 +369,41 @@ class Book extends Component {
         )}
         <br />
         <br />
+        {/* {this.state.appointmentConfirmation && ( */}
+        <Modal
+          {...this.props}
+          show={this.state.appointmentConfirmation}
+          onHide={this.handleClose}
+        >
+          <Modal.Dialog>
+            <Modal.Header closeButton>
+              <Modal.Title>Let's Confirm Your Appointment</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>
+                You Have Selected the Following Slot for your Appointment
+              </p>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  Date : {moment(this.state.startDate).format("DD")}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  {" "}
+                  Month : {moment(this.state.startDate).format("MM")}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  {" "}
+                  Year : {moment(this.state.startDate).format("YYYY")}
+                </ListGroup.Item>
+                <ListGroup.Item>Time : </ListGroup.Item>
+              </ListGroup>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary">Confirm Appointment</Button>
+            </Modal.Footer>
+          </Modal.Dialog>
+        </Modal>
+        {/* )} */}
         {/* <br />
           <br />
           <button className="btn btn-outline-dark" type="submit" value="Submit">
