@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavTabs from "./components/NavTabs";
-import { LoginContainer, Alert, Redirect, Header } from "react-bootstrap"
+import {Header, Alert, Redirect, LoginContainer } from "react";
 import Navbar from "./components"
 import Home from "./components/pages/Home";
 import Logout from "./components/pages/Logout";
@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/(login)"  />
+          <Route exact path="/(login)" />
           <Route component={LoginContainer} />
 
         </div>
@@ -38,19 +38,20 @@ class App extends Component {
           <Route exact path="/Gallery" component={Gallery} />
 
         </div>
+        <div>
+          <Header toggleAlert={this.toggleAlert} />
+          <div className="container">
+            <Navbar />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/logout" component={Logout} />
+            <Route exact path="/Appointments" component={Appointments} />
+            <Route exact path="/Book" component={Book} />
+            <Route exact path="/Gallery" component={Gallery} />
+            {this.state.isAlertOpen ? <Alert /> : null}
 
-        <Header toggleAlert={this.toggleAlert} />
-        <div className="container">
-          <Navbar />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/logout" component={Logout} />
-          <Route exact path="/Appointments" component={Appointments} />
-          <Route exact path="/Book" component={Book} />
-          <Route exact path="/Gallery" component={Gallery} />
-          {this.state.isAlertOpen ? <Alert /> : null}
-
-        </div>
-</Router >
+          </div>
+          </div>
+      </Router >
     );
   }
 }
