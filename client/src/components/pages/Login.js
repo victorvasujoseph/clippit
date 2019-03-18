@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import 'whatwg-fetch';
 import { Form, Button, Image, Modal, ButtonGroup, } from 'react-bootstrap';
-
-// import axios from "axios";
-
+import { Redirect } from "react-router-dom";
 import {
     getFromStorage,
     setInStorage,
@@ -157,7 +155,9 @@ class Login extends Component {
             });
     }
 
-    onSignIn() {
+    onSignIn(event) {
+        event.preventDefault();
+        console.log("Attempt Sign In");
         // grab state
         const {
             signInEmail,
@@ -196,6 +196,7 @@ class Login extends Component {
                         token: json.token,
                         customerID: json.userID
                     });
+                    console.log("Redirect Sign In");
                 } else {
                     this.setState({
                         signInError: json.message,
@@ -367,10 +368,7 @@ class Login extends Component {
             );
         }
         return (
-            <div>
-                <p>Signed in</p>
-                <button onClick={this.logout}>Logout</button>
-            </div>
+            <Redirect to="/Home" />
         );
     }
 }
