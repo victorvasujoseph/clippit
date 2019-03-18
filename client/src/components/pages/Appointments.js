@@ -61,7 +61,7 @@ class Appointment extends Component {
         </ButtonGroup>
 
         <ButtonGroup className="mr-2" aria-label="Second group">
-          <Button variant="outline-dark" type="submit" href="/home">
+          <Button variant="outline-dark" type="submit" href="/Home">
             Return Home
           </Button>
         </ButtonGroup>

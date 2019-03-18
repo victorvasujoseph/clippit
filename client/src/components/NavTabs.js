@@ -44,14 +44,13 @@ class NavTabs extends Component {
                 });
             }
         }
-
     }
 
     render() {
         return (
           <div>
             <Navbar bg="light" expand="lg">
-              <Navbar.Brand href="/home">
+              <Navbar.Brand href="/Home">
                 <img
                   src="https://66.media.tumblr.com/b51c37ad5173ace63c87ddebff62f989/tumblr_po4cwwChs91y5a3hjo1_1280.png"
                   width="150"

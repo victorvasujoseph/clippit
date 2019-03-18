@@ -64,7 +64,7 @@ fluid style={{height: "100px"}}/>
         <Button style={{textAlign: "center"}} variant="outline-dark" type="submit" href="/book">Book Appointment</Button>
       </ButtonGroup>
       <ButtonGroup className="mr-2" aria-label="Second group">
-        <Button style={{textAlign: "center"}} variant="outline-dark" type="submit" href="/home">Go Home</Button>
+        <Button style={{textAlign: "center"}} variant="outline-dark" type="submit" href="/Home">Go Home</Button>
       </ButtonGroup>
 </Row> 
 
