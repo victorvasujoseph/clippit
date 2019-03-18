@@ -167,24 +167,24 @@ function Home() {
   </thead>
   <tbody>
     <tr>
-    <td style={{textAlign: "left"}} >($120) HAIRCUT + STYLE</td>
-    <td style={{textAlign: "left"}} >($50) SCALP TREATMENT + REPAIR</td>
+    <td style={{textAlign: "left"}} >($120) <strong>HAIRCUT + STYLE</strong></td>
+    <td style={{textAlign: "left"}} >($50) <strong>SCALP TREATMENT + REPAIR</strong></td>
     </tr>
     <tr>
-    <td style={{textAlign: "left"}} >($100) WASH + BLOWOUT</td>
-    <td style={{textAlign: "left"}} >($75) OMBRE</td>
+    <td style={{textAlign: "left"}} >($100) <strong>WASH + BLOWOUT</strong></td>
+    <td style={{textAlign: "left"}} >($75) <strong>OMBRE</strong></td>
     </tr>
     <tr>
-    <td style={{textAlign: "left"}} >($100) ALL OVER COLORING</td>
-    <td style={{textAlign: "left"}} >($75) BALAYAGE</td>
+    <td style={{textAlign: "left"}} >($100) <strong>ALL OVER COLORING</strong></td>
+    <td style={{textAlign: "left"}} >($75) <strong>BALAYAGE</strong></td>
     </tr>
     <tr>
-    <td style={{textAlign: "left"}} >($70) HAIR TREATMENT</td>
-    <td style={{textAlign: "left"}} >($50) COLOR CORRECTION</td>
+    <td style={{textAlign: "left"}} >($70) <strong>HAIR TREATMENT</strong></td>
+    <td style={{textAlign: "left"}} >($50) <strong>COLOR CORRECTION</strong></td>
     </tr>
     <tr>
-    <td style={{textAlign: "left"}} >($60) ROOT TOUCHUP</td>
-    <td style={{textAlign: "left"}} >($30) FACIAL WAXING</td>
+    <td style={{textAlign: "left"}} >($60) <strong>ROOT TOUCHUP</strong></td>
+    <td style={{textAlign: "left"}} >($30) <strong>FACIAL WAXING</strong></td>
     </tr>
   </tbody>
 </Table>
@@ -204,32 +204,32 @@ function Home() {
   </thead>
   <tbody>
     <tr>
-    <td style={{textAlign: "left"}} >($50) HAIRCUT</td>
-    <td style={{textAlign: "left"}} >($30) STRAIGHT RAZOR SHAVE</td>
+    <td style={{textAlign: "left"}} >($50) <strong>HAIRCUT</strong></td>
+    <td style={{textAlign: "left"}} >($30) <strong>STRAIGHT RAZOR SHAVE</strong></td>
     </tr>
     <tr>
-    <td style={{textAlign: "left"}} >($75) HAIRCUT + STYLE</td>
-    <td style={{textAlign: "left"}} >($30) CLIPPER BEARD TRIM</td>
+    <td style={{textAlign: "left"}} >($75) <strong>HAIRCUT + STYLE</strong></td>
+    <td style={{textAlign: "left"}} >($30) <strong>CLIPPER BEARD TRIM</strong></td>
     </tr>
     <tr>
-    <td style={{textAlign: "left"}} >($30) BUZZ CUT</td>
-    <td style={{textAlign: "left"}} >($30) BARBER BEARD TRIM</td>
+    <td style={{textAlign: "left"}} >($30) <strong>BUZZ CUT</strong></td>
+    <td style={{textAlign: "left"}} >($30) <strong>BARBER BEARD TRIM</strong></td>
     </tr>
     <tr>
-    <td style={{textAlign: "left"}} >($30) HEAD SHAVE</td>
-    <td style={{textAlign: "left"}} >($20) MUSTACHE TRIM</td>
+    <td style={{textAlign: "left"}} >($30) <strong>HEAD SHAVE</strong></td>
+    <td style={{textAlign: "left"}} >($20) <strong>MUSTACHE TRIM</strong></td>
     </tr>
     <tr>
-    <td style={{textAlign: "left"}} >($50) HAIR COLORING</td>
-    <td style={{textAlign: "left"}} >($30) BEARD COLORING</td>
+    <td style={{textAlign: "left"}} >($50) <strong>HAIR COLORING</strong></td>
+    <td style={{textAlign: "left"}} >($30) <strong>BEARD COLORING</strong></td>
     </tr>
     <tr>
-    <td style={{textAlign: "left"}} >($40) HIGHLIGHTS</td>
-    <td style={{textAlign: "left"}} >($40) SCALP TREATMENT</td>
+    <td style={{textAlign: "left"}} >($40) <strong>HIGHLIGHTS</strong></td>
+    <td style={{textAlign: "left"}} >($40) <strong>SCALP TREATMENT</strong></td>
     </tr>
     <tr>
-    <td style={{textAlign: "left"}} >($40) GRAY BLENDING</td>
-    <td style={{textAlign: "left"}} >($30) FACIAL WAXING</td>
+    <td style={{textAlign: "left"}} >($40) <strong>GRAY BLENDING</strong></td>
+    <td style={{textAlign: "left"}} >($30) <strong>FACIAL WAXING</strong></td>
     </tr>
   </tbody>
 </Table> 
