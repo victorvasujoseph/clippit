@@ -1,33 +1,48 @@
 import React, { Component } from "react";
-import { Table, ButtonGroup, Button } from 'react-bootstrap';
-import { getFromStorage } from '../utils/storage';
+import { Table, ButtonGroup, Button } from "react-bootstrap";
+import { getFromStorage } from "../utils/storage";
+import "whatwg-fetch";
 
 class Appointment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading:false
+      isLoggedIn: false,
+      appointmentList: []
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
     const obj = getFromStorage("the_main_app");
-    if (obj && obj.customerID) {
-      const { customerID } = obj;
-      //verify Customer ID
-      fetch("/api/booking/customer-schedule/verify?customerID=" + customerID)
+    if (obj && obj.token) {
+      const { token, customerID } = obj;
+      //verify token
+      console.log(customerID);
+      fetch("/api/auth/account/verify?token=" + token)
         .then(res => res.json())
         .then(json => {
           if (json.success) {
-            console.log(json);
+            this.setState({
+              isLoggedIn: true
+            });
+            // GET the appointment information
+            fetch("/api/booking/customer-schedule/" + customerID)
+              .then(response => response.json())
+              .then(data => {
+                console.log(data);
+                this.setState({
+                  appointmentList: data
+                });
+              }); 
           } else {
-            console.log("API Error");
+            this.setState({
+              isLoggedIn: false
+            });
           }
         });
     } else {
       this.setState({
-        isLoading: false
+        isLoggedIn: false
       });
     }
   }
