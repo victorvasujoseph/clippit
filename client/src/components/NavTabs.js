@@ -20,6 +20,7 @@ function NavTabs(){
         <Nav className="mr-auto">
           <Nav.Link href="/Gallery">Gallery</Nav.Link>
           <Nav.Link href="/book">Book Appointment</Nav.Link>
+          <Nav.Link href="/">Login</Nav.Link>
           <Nav.Link href="/logout">Logout</Nav.Link>
         </Nav>
         <Button inline variant="outline-primary" href="/Appointments">Upcoming Appointments</Button>
