@@ -17,17 +17,16 @@ class Login extends Component {
         this.handleClose = this.handleClose.bind(this);
 
         this.state = {
-            show: false,
             isLoading: true,
-            token: '',
-            signUpError: '',
-            signInError: '',
-            signInEmail: '',
-            signInPassword: '',
-            signUpFirstName: '',
-            signUpLastName: '',
-            signUpEmail: '',
-            signUpPassword: ''
+            token: "",
+            signUpError: "",
+            signInError: "",
+            signInEmail: "",
+            signInPassword: "",
+            signUpFirstName: "",
+            signUpLastName: "",
+            signUpEmail: "",
+            signUpPassword: ""
         };
 
         this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
@@ -172,7 +171,7 @@ class Login extends Component {
         console.log(this.state);
 
         // Post request to backend
-        fetch('/api/auth/account/signin', {
+        fetch("/api/auth/account/signin", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -195,7 +194,7 @@ class Login extends Component {
                         signInPassword: '',
                         signInEmail: '',
                         token: json.token,
-                        customerID: json.customerID
+                        customerID: json.userID
                     });                                                                                                        
                 } else {
                     this.setState({
