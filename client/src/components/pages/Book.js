@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { getFromStorage } from "../../components/utils/storage";
 import {
   form,
   Card,
@@ -16,7 +17,8 @@ import {
   ModalDialog,
   Row,
   Form,
-  Col
+  Col,
+  ButtonGroup
 } from "react-bootstrap";
 // import { Card, CardGroup, ListGroupItem, ListGroup  } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
@@ -31,8 +33,11 @@ class Book extends Component {
       startDate: new Date(),
       show: false,
       visible: false,
+      showStylist: false,
+      showTimeSlot: false,
       value: "value",
       listStylist: [],
+      selectedStylist:{},
       slot1: false,
       slot2: false,
       slot3: false,
@@ -49,6 +54,7 @@ class Book extends Component {
     this.handleStylist = this.handleStylist.bind(this);
     this.handleTime = this.handleTime.bind(this);
     this.handleToggleClick = this.handleToggleClick.bind(this);
+    this.handleStylistSelect = this.handleStylistSelect.bind(this);
   }
 
   handleChange(date) {
@@ -59,15 +65,11 @@ class Book extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({ showStylist: !this.state.showStylist });
-
     var day = moment(this.state.startDate).format("DD");
     var month = moment(this.state.startDate).format("MM");
     var year = moment(this.state.startDate).format("YYYY");
     // get the list of stylist for the selected Date
-    fetch(
-      "/api/booking/stylist-available" + "/" + day + "/" + month + "/" + year
-    )
+    fetch("/api/booking/stylist-available/" + day + "/" + month + "/" + year)
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -75,14 +77,25 @@ class Book extends Component {
         console.log(data[0].id);
 
         this.setState({
-          visible: true,
+          showStylist: true,
           listStylist: data
         });
       });
   }
 
-  handleTime(event) {
-    this.setState({ value: event.target.value });
+  handleTime(timeSlot) {
+    var day = moment(this.state.startDate).format("DD");
+    var month = moment(this.state.startDate).format("MM");
+    var year = moment(this.state.startDate).format("YYYY");
+    const obj = getFromStorage("the_main_app");
+    const { customerID } = obj;
+    console.log(customerID);
+    console.log(timeSlot);
+    console.log(this.state.selectedStylist.id);
+    console.log(this.state.selectedStylist.name);
+    console.log(day);
+    console.log(month);
+    console.log(year);
   }
 
   handleToggleClick(event) {
@@ -99,6 +112,40 @@ class Book extends Component {
     this.setState({
       show: true
     });
+  }
+
+  handleStylistSelect(obj) {
+    console.log(obj.name);
+    var day = moment(this.state.startDate).format("DD");
+    var month = moment(this.state.startDate).format("MM");
+    var year = moment(this.state.startDate).format("YYYY");
+    fetch(
+      "/api/booking/stylist-schedule/" +
+        obj.id +
+        "/" +
+        day +
+        "/" +
+        month +
+        "/" +
+        year
+    )
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        let res = data[0];
+        this.setState({
+          showTimeSlot: true,
+          selectedStylist: obj,
+          slot1: res.slot1,
+          slot2: res.slot2,
+          slot3: res.slot3,
+          slot4: res.slot4,
+          slot5: res.slot5,
+          slot6: res.slot6,
+          slot7: res.slot7,
+          slot8: res.slot8
+        });
+      });
   }
 
   handleStylist(event) {
@@ -138,7 +185,8 @@ class Book extends Component {
         <br />
 
         <CardDeck>
-          {this.state.listStylist.length !== 0 &&
+          {this.state.showStylist &&
+            this.state.listStylist.length !== 0 &&
             this.state.listStylist.map(value => {
               return (
                 <Card>
@@ -156,7 +204,14 @@ class Book extends Component {
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <button variant="primary" className="btn btn-outline-dark">
+                    <button
+                      id={value.id}
+                      variant="primary"
+                      className="btn btn-outline-dark"
+                      onClick={() => {
+                        this.handleStylistSelect(value);
+                      }}
+                    >
                       Pick {value.name}
                     </button>
                   </Card.Footer>
@@ -167,31 +222,104 @@ class Book extends Component {
 
         <br />
         <br />
-        <form
-          onSubmit={this.handleToggleClick}
-          handleClose={this.state.visible}
-          onHide={this.handleClose}
-        >
-          <label>
-            Pick your time &nbsp;&nbsp;
-            <select value={this.state.value} onChange={this.handleTime}>
-              <option value="8:00 AM">8:00 AM</option>
-              <option value="9:00 AM">9:00 AM</option>
-              <option value="10:00 AM">10:00 AM</option>
-              <option value="11:00 AM">11:00 AM</option>
-              <option value="12:00 PM">12:00 PM</option>
-              <option value="1:00 PM">1:00 PM</option>
-              <option value="2:00 PM">2:00 PM</option>
-              <option value="3:00 PM">3:00 PM</option>
-            </select>
-          </label>
-          <br />
+        {this.state.showTimeSlot && (
+          <div>
+            <label>
+              {" "}
+              <b>Pick Your Slot : </b>
+            </label>
+            <ButtonGroup size="lg">
+              {this.state.slot1 ? (
+                <Button variant="light" onClick={()=>{
+                  this.handleTime("slot1");
+                }}> 8:00 AM </Button>
+              ) : (
+                <Button variant="light">
+                  {" "}
+                  <strike>8:00 AM</strike>
+                </Button>
+              )}
+              {this.state.slot2 ? (
+                <Button variant="light" onClick={() => {
+                  this.handleTime("slot2");
+                }}> 9:00 AM </Button>
+              ) : (
+                <Button variant="light">
+                  {" "}
+                  <strike>9:00 AM</strike>
+                </Button>
+              )}
+              {this.state.slot3 ? (
+                <Button variant="light" onClick={() => {
+                  this.handleTime("slot3");
+                }}> 10:00 AM </Button>
+              ) : (
+                <Button variant="light">
+                  {" "}
+                  <strike>10:00 AM</strike>
+                </Button>
+              )}
+              {this.state.slot4 ? (
+                <Button variant="light" onClick={() => {
+                  this.handleTime("slot4");
+                }}> 11:00 AM </Button>
+              ) : (
+                <Button variant="light">
+                  {" "}
+                  <strike>11:00 AM</strike>
+                </Button>
+              )}
+              {this.state.slot5 ? (
+                <Button variant="light" onClick={() => {
+                  this.handleTime("slot5");
+                }}> 1:00 PM </Button>
+              ) : (
+                <Button variant="light">
+                  {" "}
+                  <strike>1:00 PM</strike>
+                </Button>
+              )}
+              {this.state.slot6 ? (
+                <Button variant="light" onClick={() => {
+                  this.handleTime("slot6");
+                }}> 2:00 PM </Button>
+              ) : (
+                <Button variant="light">
+                  {" "}
+                  <strike>2:00 PM</strike>
+                </Button>
+              )}
+              {this.state.slot7 ? (
+                <Button variant="light" onClick={() => {
+                  this.handleTime("slot7");
+                }}> 3:00 PM </Button>
+              ) : (
+                <Button variant="light">
+                  {" "}
+                  <strike>3:00 PM</strike>
+                </Button>
+              )}
+              {this.state.slot8 ? (
+                <Button variant="light" onClick={() => {
+                  this.handleTime("slot8");
+                }}> 4:00 PM </Button>
+              ) : (
+                <Button variant="light">
+                  {" "}
+                  <strike>4:00 PM</strike>
+                </Button>
+              )}
+            </ButtonGroup>
+          </div>
+        )}
+        <br />
+        <br />
+        {/* <br />
           <br />
           <button className="btn btn-outline-dark" type="submit" value="Submit">
             {" "}
             Book Appointment{" "}
-          </button>
-        </form>
+          </button> */}
       </div>
     );
   }
