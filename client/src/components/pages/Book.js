@@ -13,8 +13,16 @@ class Book extends Component {
       startDate: new Date(),
       show: false,
       visible: false,
-      value: 'value',
-      listStylist:[]
+      value: "value",
+      listStylist: [],
+      slot1: false,
+      slot2: false,
+      slot3: false,
+      slot4: false,
+      slot5: false,
+      slot6: false,
+      slot7: false,
+      slot8: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
