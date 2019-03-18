@@ -44,10 +44,10 @@ class Login extends Component {
     handleClose() {
         this.setState({ show: false });
     }
-    
+
     handleShow() {
         this.setState({ show: true });
-    }   
+    }
 
     componentDidMount() {
         const obj = getFromStorage('the_main_app');
@@ -56,19 +56,19 @@ class Login extends Component {
             const { token } = obj;
             //verify token
             fetch("/api/auth/account/verify?token=" + token)
-              .then(res => res.json())
-              .then(json => {
-                if (json.success) {
-                  this.setState({
-                    token,
-                    isLoading: false
-                  });
-                } else {
-                  this.setState({
-                    isLoading: false
-                  });
-                }
-              });
+                .then(res => res.json())
+                .then(json => {
+                    if (json.success) {
+                        this.setState({
+                            token,
+                            isLoading: false
+                        });
+                    } else {
+                        this.setState({
+                            isLoading: false
+                        });
+                    }
+                });
         } else {
             this.setState({
                 isLoading: false,
@@ -126,35 +126,35 @@ class Login extends Component {
         })
         // Post request to backend
         fetch("/api/auth/account/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            firstName: signUpFirstName,
-            lastName: signUpLastName,
-            email: signUpEmail,
-            password: signUpPassword
-          })
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                firstName: signUpFirstName,
+                lastName: signUpLastName,
+                email: signUpEmail,
+                password: signUpPassword
+            })
         })
-          .then(res => res.json())
-          .then(json => {
-            if (json.success) {
-              this.setState({
-                signUpError: json.message,
-                isLoading: false,
-                signUpEmail: "",
-                signUpPassword: "",
-                signUpFirstName: "",
-                signUpLastName: ""
-              });
-            } else {
-              this.setState({
-                signUpError: json.message,
-                isLoading: false
-              });
-            }
-          });
+            .then(res => res.json())
+            .then(json => {
+                if (json.success) {
+                    this.setState({
+                        signUpError: json.message,
+                        isLoading: false,
+                        signUpEmail: "",
+                        signUpPassword: "",
+                        signUpFirstName: "",
+                        signUpLastName: ""
+                    });
+                } else {
+                    this.setState({
+                        signUpError: json.message,
+                        isLoading: false
+                    });
+                }
+            });
     }
 
     onSignIn() {
@@ -171,7 +171,7 @@ class Login extends Component {
         console.log(this.state);
 
         // Post request to backend
-        fetch("/api/auth/account/signin", {
+        fetch('/api/auth/account/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -185,8 +185,8 @@ class Login extends Component {
                 console.log(json);
                 if (json.success) {
                     setInStorage("the_main_app", {
-                      token: json.token,
-                      customerID: json.userID
+                        token: json.token,
+                        customerID: json.userID
                     });
                     this.setState({
                         signUpError: json.message,
@@ -195,7 +195,7 @@ class Login extends Component {
                         signInEmail: '',
                         token: json.token,
                         customerID: json.userID
-                    });                                                                                                        
+                    });
                 } else {
                     this.setState({
                         signInError: json.message,
@@ -253,8 +253,8 @@ class Login extends Component {
         if (!token) {
             return (
                 <div className="container">
-                <Image src="https://3.bp.blogspot.com/-cZmcCEh4p1g/XIXiykcuCTI/AAAAAAAAAHY/TWLoJ2f2Umw7Tm6JgAh20XgFkVzl0EKnwCLcBGAs/s1600/Login%2BBanner.jpg" fluid />
-                <br></br>
+                    <Image src="https://3.bp.blogspot.com/-cZmcCEh4p1g/XIXiykcuCTI/AAAAAAAAAHY/TWLoJ2f2Umw7Tm6JgAh20XgFkVzl0EKnwCLcBGAs/s1600/Login%2BBanner.jpg" fluid />
+                    <br></br>
                     <div>
                         {
                             (signInError) ? (
@@ -264,27 +264,27 @@ class Login extends Component {
                         <Form>
 
                             <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control 
-                                type="email" 
-                                placeholder="Enter email" 
-                                value={signInEmail}
-                                onChange={this.onTextboxChangeSignInEmail}
-                            />
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control
+                                    type="email"
+                                    placeholder="Enter email"
+                                    value={signInEmail}
+                                    onChange={this.onTextboxChangeSignInEmail}
+                                />
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control 
-                                type="password" 
-                                placeholder="Password" 
-                                value={signInPassword}
-                                onChange={this.onTextboxChangeSignInPassword}
-                            />
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control
+                                    type="password"
+                                    placeholder="Password"
+                                    value={signInPassword}
+                                    onChange={this.onTextboxChangeSignInPassword}
+                                />
                             </Form.Group>
 
                             <ButtonGroup>
-                                <Button variant="outline-primary" type="submit" onClick={this.onSignIn} >Login</Button>
+                                <Button variant="primary" type="submit" onClick={this.onSignIn} >Login</Button>
                             </ButtonGroup>
 
                             <br></br>
@@ -306,59 +306,58 @@ class Login extends Component {
                                                 <p>{signUpError}</p>
                                             ) : (null)
                                         }
-                                        
+
                                         <Form>
                                             <Form.Group controlId="formBasicFirstName">
-                                            <Form.Label>First Name</Form.Label>
-                                            <Form.Control 
-                                                type="text" 
-                                                placeholder="First Name" 
-                                                value={signUpFirstName}
-                                                onChange={this.onTextboxChangeSignUpFirstName}
-                                            />
-                                            
+                                                <Form.Label>First Name</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="First Name"
+                                                    value={signUpFirstName}
+                                                    onChange={this.onTextboxChangeSignUpFirstName}
+                                                />
+
                                             </Form.Group>
                                             <Form.Group controlId="formBasicLastName">
-                                            <Form.Label>Last Name</Form.Label>
-                                            <Form.Control 
-                                                type="text" 
-                                                placeholder="Last Name" 
-                                                value={signUpLastName}
-                                                onChange={this.onTextboxChangeSignUpLastName}
-                                            />
+                                                <Form.Label>Last Name</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Last Name"
+                                                    value={signUpLastName}
+                                                    onChange={this.onTextboxChangeSignUpLastName}
+                                                />
 
                                             </Form.Group>
                                             <Form.Group controlId="formBasicEmail">
-                                            <Form.Label>Email</Form.Label>
-                                            <Form.Control 
-                                                type="text" 
-                                                placeholder="Email" 
-                                                value={signUpEmail}
-                                                onChange={this.onTextboxChangeSignUpEmail}
-                                            />
+                                                <Form.Label>Email</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Email"
+                                                    value={signUpEmail}
+                                                    onChange={this.onTextboxChangeSignUpEmail}
+                                                />
 
                                             </Form.Group>
                                             <Form.Group controlId="formBasicPassword">
-                                            <Form.Label>Password</Form.Label>
-                                            <Form.Control 
-                                                type="password" 
-                                                placeholder="Password" 
-                                                value={signUpPassword}
-                                                onChange={this.onTextboxChangeSignUpPassword}
-                                            />
+                                                <Form.Label>Password</Form.Label>
+                                                <Form.Control
+                                                    type="password"
+                                                    placeholder="Password"
+                                                    value={signUpPassword}
+                                                    onChange={this.onTextboxChangeSignUpPassword}
+                                                />
                                             </Form.Group>
 
-                                            <Button variant="outline-dark" type="submit" onClick={this.onSignUp}>Sign Up</Button>
                                         </Form>
                                     </div>
                                 </Modal.Body>
 
                                 <Modal.Footer>
                                     <Button variant="secondary" onClick={this.handleClose}>
-                                    Close
+                                        Close
                                     </Button>
-                                    <Button variant="primary" onClick={this.handleClose}>
-                                    Save Changes
+                                    <Button variant="primary" type="submit" onClick={this.onSignUp}>
+                                    Sign Up
                                     </Button>
                                 </Modal.Footer>
                             </Modal>
