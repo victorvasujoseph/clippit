@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { form, Card, CardGroup, Button, ListGroup, Modal, ModalDialog, Row, Form, Col } from "react-bootstrap";
+import { form, Card, CardGroup, CardColumns, Button, ListGroup, Modal, ModalDialog, Row, Form, Col } from "react-bootstrap";
 // import { Card, CardGroup, ListGroupItem, ListGroup  } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import addMonths from "date-fns/addMonths";
@@ -13,7 +13,8 @@ class Book extends Component {
       startDate: new Date(),
       show: false,
       visible: false,
-      value: 'value'
+      value: 'value',
+      listStylist:[]
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,6 +51,13 @@ class Book extends Component {
       .then(res => res.json())
       .then(data => {
         console.log(data);
+        console.log(data.length);
+        console.log(data[0].id);
+
+        this.setState({
+          visible: true,
+          listStylist:data
+        });
       })
 
   }
@@ -97,20 +105,66 @@ render() {
           />
         </div>
         <div className="form-group">
-          <button className="btn btn-outline-dark" onClick={this.handleShow}> Choose your date </button>
+          <button className="btn btn-outline-dark" onClick={this.handleShow}>
+            {" "}
+            Choose your date{" "}
+          </button>
         </div>
       </form>
 
-      <br></br>
-      <Modal {...this.props}
+      <br />
+      <Modal
+        {...this.props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        show={this.state.show} onHide={this.handleClose}>
+        show={this.state.show}
+        onHide={this.handleClose}
+      >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">Choose Your Stylist!</Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Choose Your Stylist!
+          </Modal.Title>
         </Modal.Header>
-        <ModalDialog
+        <Modal.Body>
+          <CardColumns>
+            {this.state.listStylist.length !== 0 &&
+              this.state.listStylist.map(value => {
+                return (
+                  <Card style={{ width: "12rem" }}>
+                    <Card.Img
+                      variant="top"
+                      src="https://4.bp.blogspot.com/-TNChkFcRS9Q/XIV8fgMf69I/AAAAAAAAAGE/87JgDYGLCMI1IjRCpNL825SxdoRlidFPQCLcBGAs/s1600/Julia.jpg"
+                    />
+                    <Card.Body>
+                      <Card.Title>Julia</Card.Title>
+                      <Card.Text>
+                        <ListGroup variant="flush">
+                          <ListGroup.Item>
+                            Women's Cut and Style
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            Hair Coloring & Higlights
+                          </ListGroup.Item>
+                          <ListGroup.Item>Hair Treatment</ListGroup.Item>
+                        </ListGroup>
+                      </Card.Text>
+                      <Button
+                        variant="outline-dark"
+                        value="option3"
+                        id="5c85c76b09acfa132dd8ea59"
+                        onClick={this.handleClose}
+                      >
+                        Book Julia
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                );
+              })}
+          </CardColumns>
+        </Modal.Body>
+      </Modal>
+      {/* <ModalDialog
           size="lg"
           centered>
           <CardGroup>
@@ -180,12 +234,15 @@ render() {
               </Row>
             </Form>
           </CardGroup>
-        </ModalDialog>
-      </Modal>
+        </ModalDialog> */}
 
-      <br></br>
-      <br></br>
-      <form onSubmit={this.handleToggleClick} handleClose={this.state.visible} onHide={this.handleClose}>
+      <br />
+      <br />
+      <form
+        onSubmit={this.handleToggleClick}
+        handleClose={this.state.visible}
+        onHide={this.handleClose}
+      >
         <label>
           Pick your time &nbsp;&nbsp;
           <select value={this.state.value} onChange={this.handleTime}>
@@ -199,11 +256,14 @@ render() {
             <option value="3:00 PM">3:00 PM</option>
           </select>
         </label>
-        <br></br>
-        <br></br>
-        <button className="btn btn-outline-dark" type="submit" value="Submit"> Book Appointment </button>
+        <br />
+        <br />
+        <button className="btn btn-outline-dark" type="submit" value="Submit">
+          {" "}
+          Book Appointment{" "}
+        </button>
       </form>
-    </div >
+    </div>
   );
 }
 }

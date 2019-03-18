@@ -6,13 +6,17 @@ module.exports = {
     const { body } = req;
     const { fName } = body;
     const { lName } = body;
+    const { image } = body;
+    
     console.log(fName);
     console.log(lName);
+    console.log(image);
 
     db.stylist
       .create({
         firstName: fName,
-        lastName: lName
+        lastName: lName,
+        image:image
       })
       .then(function(stylist) {
         console.log(stylist);
