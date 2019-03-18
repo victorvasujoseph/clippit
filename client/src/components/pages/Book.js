@@ -296,7 +296,7 @@ class Book extends Component {
           <div>
             <label>
               {" "}
-              <b>Pick Your Slot : </b>
+              <b>Pick Your Slot :   </b>
             </label>
             <ButtonGroup size="lg">
               {this.state.slot1 ? (
@@ -432,6 +432,7 @@ class Book extends Component {
         )}
         <br />
         <br />
+
         <Modal
           {...this.props}
           show={this.state.appointmentConfirmation}
