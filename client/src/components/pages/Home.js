@@ -101,7 +101,7 @@ class Home extends Component {
 
         <CardDeck>
           <Card  border="info">
-          <Card.Img variant="top" src="https://66.media.tumblr.com/d194e6bbdf4ce20f0a2471d06b29e97c/tumblr_pok2xzImKL1y5a3hjo1_540.jpg" />
+          <Card.Img variant="top" src="https://4.bp.blogspot.com/-cJ8eC0qf7nc/XIWAcA_KkaI/AAAAAAAAAG0/ENXzUqyS87w7GdGekoFAHAUbRr4NaH16gCLcBGAs/w945-h600-p-k-no-nu/Christina.jpgg" />
             <Card.Body>
               <h3>Todd Bond</h3>
               <Card.Text>
@@ -128,7 +128,7 @@ class Home extends Component {
           </Card>
 
           <Card border="warning">
-            <Card.Img variant="top" src="https://66.media.tumblr.com/0222c41ece9949d73a9b8e8c0ee4b462/tumblr_pok2pcvAtb1y5a3hjo2_540.jpg" />
+            <Card.Img variant="top" src="https://1.bp.blogspot.com/-sQcDvYeOcLw/XIWC7XcWrqI/AAAAAAAAAHA/zj-ikxQr86MA9pnoXcYXcRXrdlNODiAEwCLcBGAs/w945-h600-p-k-no-nu/Christina.jpg" />
             <Card.Body>
               <h3>Christina Leypold</h3>
               <Card.Text>

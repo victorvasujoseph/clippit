@@ -264,7 +264,7 @@ class Book extends Component {
                   <Card.Body>
                     <Card.Title>{value.name}</Card.Title>
                     <Card.Text>
-                      <ListGroup variant="flush">
+                    <ListGroup variant="flush">
                         <ListGroup.Item>
                           Hair Coloring & Highlights
                         </ListGroup.Item>
