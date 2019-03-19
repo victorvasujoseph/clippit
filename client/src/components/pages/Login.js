@@ -129,7 +129,8 @@ class Login extends Component {
     } = this.state;
 
     this.setState({
-      isloading: true
+      isloading: true,
+      show: false
     });
     // Post request to backend
     fetch("/api/auth/account/signup", {
