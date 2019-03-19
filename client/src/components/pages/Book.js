@@ -96,6 +96,7 @@ class Book extends Component {
       },
       body: JSON.stringify({
         stylistID: this.state.selectedStylist.id,
+        stylistName: this.state.selectedStylist.name,
         day: moment(this.state.startDate).format("DD"),
         month: moment(this.state.startDate).format("MM"),
         year: moment(this.state.startDate).format("YYYY"),

@@ -107,7 +107,7 @@ class Appointment extends Component {
                       value.year}
                   </td>
                   <td>{value.timeSlot}</td>
-                  <td>{value.stylistID}</td>
+                  <td>{value.stylistName}</td>
                 </tr>
               </tbody>
             );
