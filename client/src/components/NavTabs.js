@@ -79,9 +79,11 @@ class NavTabs extends Component {
                 </Nav>
 
                 {this.state.isLoggedIn && (
-                  <Nav.Link>
-                    {this.state.customerID}
-                  </Nav.Link>
+                  <Nav>
+                    Welcome {this.state.firstName}
+                    &nbsp;
+                    &nbsp;
+                  </Nav>
                 )}
 
                 {this.state.isLoggedIn && (
