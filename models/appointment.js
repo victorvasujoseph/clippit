@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const appointmentSchema = new Schema({
   stylistID: { type: Schema.Types.ObjectId, required: true },
+  stylistName: { type: String, required: true },
   day: { type: Number, required: true },
   month: { type: Number, required: true },
   year: { type: Number, required: true },
