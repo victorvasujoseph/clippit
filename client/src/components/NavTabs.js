@@ -80,7 +80,7 @@ class NavTabs extends Component {
 
                 {this.state.isLoggedIn && (
                   <Nav.Link>
-                    {this.state.customerID}
+                    {this.state.firstName}
                   </Nav.Link>
                 )}
 

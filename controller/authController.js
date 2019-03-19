@@ -11,7 +11,6 @@ module.exports = {
     let { firstName } = body;
     let { lastName } = body;
   
-
     console.log(body);
     console.log(password);
     console.log(email);
@@ -81,8 +80,6 @@ module.exports = {
     const { body } = req;
     const { password } = body;
     let { email } = body;
-    let { firstName } = body;
-    let { lastName } = body;
 
     if (!email) {
       return res.send({
@@ -143,7 +140,9 @@ module.exports = {
             success: true,
             message: "Valid sign in",
             token: doc._id,
-            userID: doc.userId
+            userID: doc.userId,
+            firstName: user.firstName,
+            lastName: user.lastName
           });
         });
       }
