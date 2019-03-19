@@ -248,7 +248,7 @@ class Book extends Component {
               onClick={this.handleShow}
             >
               {" "}
-              Choose your date{" "}
+              Choose your Stylist{" "}
             </button>
           </div>
         </form>
@@ -444,7 +444,6 @@ class Book extends Component {
               <Modal.Title>Let's Confirm Your Appointment</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <p>You Have Selected the Following Slot for your Appointment</p>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   Date : {moment(this.state.startDate).format("MM")}/{moment(this.state.startDate).format("DD")}/{moment(this.state.startDate).format("YYYY")}
@@ -458,7 +457,7 @@ class Book extends Component {
               </ListGroup>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="primary" onClick={this.handleBookAppointment}>
+              <Button variant="primary" href="/Appointments" onClick={this.handleBookAppointment}>
                 Confirm Appointment
               </Button>
             </Modal.Footer>

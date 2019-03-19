@@ -10,7 +10,9 @@ class NavTabs extends Component {
         this.state = {
             isLoggedIn: false,
             token:"",
-            customerID:""
+            customerID:"",
+            firstName: "",
+            lastName: "",
         };
     }
 
@@ -20,7 +22,7 @@ class NavTabs extends Component {
             console.log(obj);
             if (obj && obj.token) {
                 console.log(obj);
-                const { token, customerID } = obj;
+                const { token, customerID, firstName, lastName} = obj;
                 //verify token
                 fetch("/api/auth/account/verify?token=" + token)
                     .then(res => res.json())
@@ -29,7 +31,10 @@ class NavTabs extends Component {
                             this.setState({
                               token,
                               isLoggedIn: true,
-                              customerID
+                              customerID,
+                              firstName,
+                              lastName
+      
                             });
                         } else {
                             this.setState({
