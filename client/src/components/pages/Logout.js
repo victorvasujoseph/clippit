@@ -7,7 +7,7 @@ import {
 function Logout() {
   return (
     <div className="container">
-      <br />
+
       <h1>Are you sure you want to log out?</h1>
 
       <ButtonGroup className="mr-2" aria-label="First group">
