@@ -451,6 +451,9 @@ class Book extends Component {
                 <ListGroup.Item>
                   Time : {this.state.selectedTimeSlot}
                 </ListGroup.Item>
+                <ListGroup.Item>
+                  Stylist : {this.state.selectedStylist.name}
+                </ListGroup.Item>
               </ListGroup>
             </Modal.Body>
             <Modal.Footer>

@@ -103,7 +103,7 @@ class Home extends Component {
           <Card  border="info">
           <Card.Img variant="top" src="https://66.media.tumblr.com/d194e6bbdf4ce20f0a2471d06b29e97c/tumblr_pok2xzImKL1y5a3hjo1_540.jpg" />
             <Card.Body>
-              <h3>Todd</h3>
+              <h3>Todd Bond</h3>
               <Card.Text>
                 "Best haircut I've ever gotten! Todd gave me the cleanest fade and I left looking and feeling great. I'll definitely be 
                 seeing Todd again for my next cut. Huge props to Todd and the team, keep it up. Definitely 5 stars!"
@@ -130,7 +130,7 @@ class Home extends Component {
           <Card border="warning">
             <Card.Img variant="top" src="https://66.media.tumblr.com/0222c41ece9949d73a9b8e8c0ee4b462/tumblr_pok2pcvAtb1y5a3hjo2_540.jpg" />
             <Card.Body>
-              <h3>Christina</h3>
+              <h3>Christina Leypold</h3>
               <Card.Text>
                 "Christina is such a pro. When I arrived I wasn't sure what I wanted and I was a little nervous about working with a new stylist. I 
                 let Christina get creative and by the end I had the best style and color I've ever gotten!"
@@ -159,7 +159,7 @@ class Home extends Component {
           <Card border="success">
             <Card.Img variant="top" src="https://4.bp.blogspot.com/-TNChkFcRS9Q/XIV8fgMf69I/AAAAAAAAAGE/87JgDYGLCMI1IjRCpNL825SxdoRlidFPQCLcBGAs/s1600/Julia.jpg" />
             <Card.Body>
-              <h3>Julia</h3>
+              <h3>Julia Roberts</h3>
               <Card.Text>
                 "Julia is simply the best. I've been seeing her for 6 years now and I wouldn't dream of getting my hair cut and styled by 
                 anyone else. She's not only one of the loveliest people I've met, but she really knows how to make you look good!"
@@ -185,7 +185,7 @@ class Home extends Component {
           <Card border="danger">
             <Card.Img variant="top" src="https://4.bp.blogspot.com/-TgWScuicD6I/XIV8gZClWpI/AAAAAAAAAGQ/KnN0sX9ZAb444uFiTVSBBF_i1uSosZYkwCLcBGAs/s1600/Xavier.jpg" />
             <Card.Body>
-              <h3>Xavier</h3>
+              <h3>Xavier Charles</h3>
               <Card.Text>
                 "Xavier's attention to deail is like none other. I like really clean lines and styling and Xavier doesn't miss a hair. He's friendly and definitely knows
                 his way around sheers and clippers. 5 Stars, 10/10..."
