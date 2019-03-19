@@ -8,10 +8,15 @@ module.exports = {
     const { body } = req;
     const { password } = body;
     let { email } = body;
+    let { firstName } = body;
+    let { lastName } = body;
+  
 
     console.log(body);
     console.log(password);
     console.log(email);
+    console.log(firstName);
+    console.log(lastName);
 
     if (!email) {
       return res.send({
@@ -53,6 +58,8 @@ module.exports = {
         const newUser = new User();
 
         newUser.email = email;
+        newUser.firstName = firstName;
+        newUser.lastName = lastName;
         newUser.password = newUser.generateHash(password);
         newUser.save((err, user) => {
           if (err) {
@@ -74,6 +81,8 @@ module.exports = {
     const { body } = req;
     const { password } = body;
     let { email } = body;
+    let { firstName } = body;
+    let { lastName } = body;
 
     if (!email) {
       return res.send({

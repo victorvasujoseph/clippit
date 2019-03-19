@@ -1,33 +1,83 @@
 import React, { Component } from "react";
-import { Table, ButtonGroup, Button } from 'react-bootstrap';
-import { getFromStorage } from '../utils/storage';
+import { Table, ButtonGroup, Button } from "react-bootstrap";
+import { getFromStorage } from "../utils/storage";
+import "whatwg-fetch";
 
 class Appointment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading:false
+      isLoggedIn: false,
+      appointmentList: []
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
     const obj = getFromStorage("the_main_app");
-    if (obj && obj.customerID) {
-      const { customerID } = obj;
-      //verify Customer ID
-      fetch("/api/booking/customer-schedule/verify?customerID=" + customerID)
+    if (obj && obj.token) {
+      const { token, customerID } = obj;
+      //verify token
+      console.log(customerID);
+      fetch("/api/auth/account/verify?token=" + token)
         .then(res => res.json())
         .then(json => {
           if (json.success) {
-            console.log(json);
+            this.setState({
+              isLoggedIn: true
+            });
+            // GET the appointment information
+            fetch("/api/booking/customer-schedule/" + customerID)
+              .then(response => response.json())
+              .then(data => {
+                
+                var listX = data.map(value => {
+                  
+                  switch (value.timeSlot) {
+                    case "slot1":
+                      value.timeSlot = "8:00 AM";
+                      break;
+                    case "slot2":
+                      value.timeSlot = "9:00 AM";
+                      break;
+                    case "slot3":
+                      value.timeSlot = "10:00 AM";
+                      break;
+                    case "slot4":
+                      value.timeSlot = "11:00 AM";
+                      break;
+                    case "slot5":
+                      value.timeSlot = "1:00 PM";
+                      break;
+                    case "slot6":
+                      value.timeSlot = "2:00 PM";
+                      break;
+                    case "slot7":
+                      value.timeSlot = "3:00 PM";
+                      break;
+                    case "slot8":
+                      value.timeSlot = "4:00 PM";
+                      break;
+                    default:
+                      value.timeSlot = "";
+                      break;
+                  }
+                  return value;
+                })
+                
+
+                this.setState({
+                  appointmentList: listX
+                });
+              });
           } else {
-            console.log("API Error");
+            this.setState({
+              isLoggedIn: false
+            });
           }
         });
     } else {
       this.setState({
-        isLoading: false
+        isLoggedIn: false
       });
     }
   }
@@ -45,13 +95,23 @@ class Appointment extends Component {
               <th>Service Provider</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td />
-              <td />
-              <td />
-            </tr>
-          </tbody>
+          {this.state.appointmentList.map(value => {
+            return (
+              <tbody>
+                <tr>
+                  <td>
+                    {value.month +
+                      "/" +
+                      value.day +
+                      "/" +
+                      value.year}
+                  </td>
+                  <td>{value.timeSlot}</td>
+                  <td>{value.stylistName}</td>
+                </tr>
+              </tbody>
+            );
+          })}
         </Table>
 
         <ButtonGroup className="mr-2" aria-label="First group">

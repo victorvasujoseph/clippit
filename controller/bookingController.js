@@ -135,6 +135,7 @@ module.exports = {
     console.log(req.body.year);
     console.log(req.body.timeSlot);
     console.log(req.body.customerID);
+    console.log(req.body.stylistName)
 
     db.appointments
       .find({
@@ -151,6 +152,7 @@ module.exports = {
           db.appointments
             .create({
               stylistID: req.body.stylistID,
+              stylistName: req.body.stylistName,
               day: req.body.day,
               month: req.body.month,
               year: req.body.year,

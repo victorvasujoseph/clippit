@@ -129,7 +129,8 @@ class Login extends Component {
     } = this.state;
 
     this.setState({
-      isloading: true
+      isloading: true,
+      show: false
     });
     // Post request to backend
     fetch("/api/auth/account/signup", {
@@ -193,7 +194,9 @@ class Login extends Component {
         if (json.success) {
           setInStorage("the_main_app", {
             token: json.token,
-            customerID: json.userID
+            customerID: json.userID,
+            firstName: json.firstName,
+            lastName: json.lastName
           });
           this.setState({
             signUpError: json.message,
@@ -201,7 +204,9 @@ class Login extends Component {
             signInPassword: "",
             signInEmail: "",
             token: json.token,
-            customerID: json.userID
+            customerID: json.userID,
+            firstName: json.firstName,
+            lastName: json.lastName
           });
             window.location.reload();
         } else {
@@ -380,14 +385,7 @@ class Login extends Component {
       return (
           <Redirect to="/Home"/>
       );
-    //   return (){
-    //       this.props.history.push(`/Home`);
-    //   }
-    //   return (
-    //     //   {this.props.history.push(`/Home`)}
-    //      <Redirect to="/Home" />
-    //   )
-        
+      
   }
 }
 export default Login;

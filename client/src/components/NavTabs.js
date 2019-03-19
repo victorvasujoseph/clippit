@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav, Button } from 'react-bootstrap';
-import {
-    getFromStorage
-} from './utils/storage';
+import { getFromStorage} from './utils/storage';
 
 
 class NavTabs extends Component {
@@ -12,7 +10,9 @@ class NavTabs extends Component {
         this.state = {
             isLoggedIn: false,
             token:"",
-            customerID:""
+            customerID:"",
+            firstName: "",
+            lastName: "",
         };
     }
 
@@ -22,7 +22,7 @@ class NavTabs extends Component {
             console.log(obj);
             if (obj && obj.token) {
                 console.log(obj);
-                const { token } = obj;
+                const { token, customerID, firstName, lastName} = obj;
                 //verify token
                 fetch("/api/auth/account/verify?token=" + token)
                     .then(res => res.json())
@@ -30,7 +30,11 @@ class NavTabs extends Component {
                         if (json.success) {
                             this.setState({
                               token,
-                              isLoggedIn: true
+                              isLoggedIn: true,
+                              customerID,
+                              firstName,
+                              lastName
+      
                             });
                         } else {
                             this.setState({
@@ -49,7 +53,7 @@ class NavTabs extends Component {
     render() {
         return (
           <div>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="light" expand="lg" fixed="top">
               <Navbar.Brand href="/Home">
                 <img
                   src="https://66.media.tumblr.com/b51c37ad5173ace63c87ddebff62f989/tumblr_po4cwwChs91y5a3hjo1_1280.png"
@@ -73,6 +77,13 @@ class NavTabs extends Component {
                   )}
 
                 </Nav>
+
+                {this.state.isLoggedIn && (
+                  <Nav.Link>
+                    {this.state.customerID}
+                  </Nav.Link>
+                )}
+
                 {this.state.isLoggedIn && (
                   <Button
                     inline
@@ -84,6 +95,10 @@ class NavTabs extends Component {
                 )}
               </Navbar.Collapse>
             </Navbar>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
           </div>
         );
     }
