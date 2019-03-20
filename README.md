@@ -1,2 +1,49 @@
 # clippit
 UCB final project
+
+
+## Demo Application
+This app is deployed on Heroku please [Click Here](https://clippit-ucb.herokuapp.com/ "Deployed App") to access it 
+
+## Instructions for installing application
+
+* git clone [git@github.com:MarkHays/NewsTalk.git](git@github.com:MarkHays/NewsTalk.git)
+* cd NewsTalk
+* npm install
+
+## Technologies Used
+
+* HTML
+* CSS
+* JavaScript
+* Node.js
+* React.js
+* React-Bootstrap
+* Express
+* Mongoose Mongodb
+* Moment.js
+
+
+## ScreenShots
+* HomePage
+<img width="1268" alt="home" src="https://user-images.githubusercontent.com/42901367/54723149-dae6ad00-4b23-11e9-9aeb-95d4c353f140.png">
+
+* Signup
+<img width="1277" alt="signup" src="https://user-images.githubusercontent.com/42901367/54723673-8cd2a900-4b25-11e9-94de-55cae96a14a9.png">
+
+* Login
+<img width="1269" alt="login" src="https://user-images.githubusercontent.com/42901367/54723690-9fe57900-4b25-11e9-8d98-f0f170944ba5.png">
+
+* Book Appointment
+<img width="1281" alt="book" src="https://user-images.githubusercontent.com/42901367/54723707-b7bcfd00-4b25-11e9-9714-8954d119baee.png">
+
+* Choose Stylist
+<img width="1268" alt="bookStylist" src="https://user-images.githubusercontent.com/42901367/54723734-d15e4480-4b25-11e9-8ed3-6961b0fe0631.png">
+
+* Upcoming Appointments
+<img width="1280" alt="upcomingAppointments" src="https://user-images.githubusercontent.com/42901367/54723758-e1762400-4b25-11e9-89ba-0aee4ed1253b.png">
+
+* Gallery
+<img width="1269" alt="gallery" src="https://user-images.githubusercontent.com/42901367/54723782-f05cd680-4b25-11e9-94fe-68ce7e47e106.png">
+
+
