@@ -7,8 +7,8 @@ This app is deployed on Heroku please [Click Here](https://clippit-ucb.herokuapp
 
 ## Instructions for installing application
 
-* git clone [git@github.com:MarkHays/NewsTalk.git](git@github.com:MarkHays/NewsTalk.git)
-* cd NewsTalk
+* git clone [git@github.com:victorvasujoseph/clippit.git](git@github.com:victorvasujoseph/clippit.git)
+* cd clippit
 * npm install
 
 ## Technologies Used
