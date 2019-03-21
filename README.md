@@ -28,7 +28,7 @@ This app is deployed on Heroku. Please [Click Here](https://clippit-ucb.herokuap
 
 
 ## ScreenShots
-* Once a user enter...the home is presented similar to the following screeshot:
+* Once a user enter...the homepage is presented similar to the following screeshot:
 <img width="1268" alt="home" src="https://user-images.githubusercontent.com/42901367/54723149-dae6ad00-4b23-11e9-9aeb-95d4c353f140.png">
 
 * In order to book an appointment or to view certain aspects of the site, the user will be prompt to login or sign up if they do not have an account.
