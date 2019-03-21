@@ -3,10 +3,10 @@ UCB final project
 
 A mock shop called "CLIPPIT" to show our modern booking platform.
 
-Our application is design for barber shop and salons to integrate an easy-to-use scheduling platform with their websites.
+Our application is designed for barber shop and salons to integrate an easy-to-use scheduling platform with their websites.
 
 ## Demo Application
-This app is deployed on Heroku please [Click Here](https://clippit-ucb.herokuapp.com/ "Deployed App") to access it 
+This app is deployed on Heroku. Please [Click Here](https://clippit-ucb.herokuapp.com/ "Deployed App") to access it 
 
 ## Instructions for installing application
 
@@ -28,16 +28,16 @@ This app is deployed on Heroku please [Click Here](https://clippit-ucb.herokuapp
 
 
 ## ScreenShots
-* Once user enter the website, our home page will show.
+* Once a user enter...the home is presented similar to the following screeshot:
 <img width="1268" alt="home" src="https://user-images.githubusercontent.com/42901367/54723149-dae6ad00-4b23-11e9-9aeb-95d4c353f140.png">
 
-* In order to book an appointment or to view certain aspect of the site, the user will be prompt to login or sign up if they do not have an account.
+* In order to book an appointment or to view certain aspects of the site, the user will be prompt to login or sign up if they do not have an account.
 <img width="1277" alt="signup" src="https://user-images.githubusercontent.com/42901367/54723673-8cd2a900-4b25-11e9-94de-55cae96a14a9.png">
 
 * Login
 <img width="1269" alt="login" src="https://user-images.githubusercontent.com/42901367/54723690-9fe57900-4b25-11e9-8d98-f0f170944ba5.png">
 
-* Once user have logged in, they can easily go to the book appointment page to schedule their appointment.
+* Once user has logged in, they can easily go to the book appointment page to schedule their appointment.
 <img width="1281" alt="book" src="https://user-images.githubusercontent.com/42901367/54723707-b7bcfd00-4b25-11e9-9714-8954d119baee.png">
 
 * Choose Stylist
